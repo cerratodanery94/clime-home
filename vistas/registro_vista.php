@@ -26,7 +26,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Registro de Usuarios</p>
 
-    <form action="modelos/registrar_modelo.php" method="post">
+    <form action="../modelos/registrar_modelo.php" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control nombres" placeholder="Nombres" name="nombres" id="nombres">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
