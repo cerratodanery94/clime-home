@@ -12,6 +12,7 @@
         </style>
 </head>
 <body>
+<?php
 require_once("controladores/usuarios_controlador.php");
 ?>
 </body>
