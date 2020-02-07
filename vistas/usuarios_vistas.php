@@ -17,7 +17,7 @@
     </td>
     <?php
     foreach ($matrizproductos as $registro) {
-        echo"<tr><td>".$registro["USU_USUARIO"]."</tr></td>";
+        echo"<tr><td>".$registro["USU_NOMBRES"]."</tr></td>";
     }
     ?>
     </table>

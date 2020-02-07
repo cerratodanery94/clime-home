@@ -28,19 +28,24 @@
 
     <form action="login_modelo.php" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" id="nombre">
+        <input type="text" class="form-control nombres" placeholder="nombres" name="nombres" id="nombres">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Usuario" name="usu" id="usu">
+        <input type="text" class="form-control apellidos" placeholder="apellidos" name="apellidos" id="apellidos">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control usuario" placeholder="Usuario" name="usuario" id="usuario">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Correo" name="correo" id="correo">
+        <input type="password" class="form-control contraseña" placeholder="contraseña" name="contraseña" id="contraseña">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Contraseña" name="contra" id="contra">
+        <input type="email" class="form-control correo" placeholder="correo" name="correo" id="correo">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
@@ -51,7 +56,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+          <button type="submit" class="btn btn-primary btn-registar btn-block btn-flat">Ingresar</button>
         </div>
         <!-- /.col -->
       </div>
