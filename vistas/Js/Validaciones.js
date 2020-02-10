@@ -1,5 +1,5 @@
 function validar(){
-    var usuario,contra,nombres,apellidos,correo;
+    var usuario,contra,nombres,apellidos,correo,confirmar_contra;
     var espacio=/\s/;
     var patron=/^[A-Za-z\s]+$/;
     var p_correo=/\w+@\w+\.+[a-z]/;
@@ -9,6 +9,7 @@ function validar(){
     nombres=document.getElementById('nombres').value;
     apellidos=document.getElementById('apellidos').value;
     correo=document.getElementById('correo').value;
+    confirmar_contra=document.getElementById('confirmar_contra');
     
     if(usuario.length>15 || nombres.length>50 || apellidos.length>50 || correo.length>60){
         alert("Los campos no cumplen con el tamaño según el definido en la base de datos ");
@@ -32,7 +33,11 @@ function validar(){
     }
     else if(espacio.test(usuario) ||espacio.test(contra)){
         alert("Los campos usuario y contraseña  no debe tener espacios");
-        return false;
+        return false; 
+    }
+    else if(contra!=confirmar_contra){
+    alert("No coinciden las contraseñas");
+    return false; 
     }
     else if(!p_correo.test(correo)) {
         alert("El correo no es valido");
