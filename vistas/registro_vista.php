@@ -36,9 +36,6 @@
         <input type="text" class="form-control nombres" placeholder="Nombres"  name="nombres" id="nombres">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-
-
-
       
       <div class="form-group has-feedback">
       <label for="inputEmail3" class="col-sm-2 control-label">Apellidos</label>
@@ -71,6 +68,10 @@
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btnregistrar">Registrarse</button>
+        </div>
+
+        <div class="col-xs-4">
+          <button  href="../vista/login_vista.php"  type="submit" class="btn btn-primary btnregistrar">Ingresar </button>
         </div>
         <!-- /.col -->
       </div>
