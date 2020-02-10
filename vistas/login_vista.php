@@ -13,9 +13,7 @@
 
 <!-- Nuestro css-->
 <link rel="stylesheet" type="text/css" href="../vistas/Css/Index.css" >
-<!-- ver contraseña -->
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="vistas/css/index.css">
+
 </head>
 <body>
     <div class="modal-dialog text-center">
@@ -24,7 +22,7 @@
                 <div class="col-12 user-img">
                     <img src="../vistas/Img/User_icono1.png" th:src="@{/img/user.png}"/>
                 </div>
-                <form class="col-12" action="../modelos/login_modelo.php" method="Post">
+                <form class="col-12" action="../modelos/login_modelo.php" method="Post" onsubmit="return validar();">
                     <div class="form-group" id="user-group">
                         <input type="text" class="form-control user" placeholder="Nombre de usuario" name="login" id="login" />
                     </div> 
