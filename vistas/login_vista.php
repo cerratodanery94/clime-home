@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="../vistas/Css/Index.css" >
 <!-- ver contraseña -->
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="vistas/css/index.php">
+<link rel="stylesheet" href="vistas/css/index.css">
 </head>
 <body>
     <div class="modal-dialog text-center">
