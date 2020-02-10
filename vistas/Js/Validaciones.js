@@ -15,11 +15,11 @@ function validar(){
         alert("Los campos no cumplen con el tamaño según el definido en la base de datos ");
         return false;
     }
-    else if(relleno_espacios.test(usuario) ||relleno_espacios.test(contra) || relleno_espacios.test(nombres) ||relleno_espacios.test(apellidos) || relleno_espacios.test(correo)){
+    else if(relleno_espacios.test(usuario) ||relleno_espacios.test(contra) ||relleno_espacios.test(confirmar_contra) || relleno_espacios.test(nombres) ||relleno_espacios.test(apellidos) || relleno_espacios.test(correo)){
         alert("Los campos no pueden ser rellenados con espacios");
         return false;
     }
-    else if(usuario.length==0 || contra.length==0 || nombres.length==0 || apellidos.length==0 || correo.length==0){
+    else if(usuario.length==0 || contra.length==0 || confirmar_contra.length==0 || nombres.length==0 || apellidos.length==0 || correo.length==0){
         alert("Verifique los datos, hay campos vacios");
         return false;
     }
@@ -31,7 +31,7 @@ function validar(){
         alert("La contraseña debe tener al menos 8 caracteres");
         return false;
     }
-    else if(espacio.test(usuario) ||espacio.test(contra)){
+    else if(espacio.test(usuario) ||espacio.test(contra) ||espacio.test(confirmar_contra)){
         alert("Los campos usuario y contraseña  no debe tener espacios");
         return false; 
     }
