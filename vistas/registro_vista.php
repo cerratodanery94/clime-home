@@ -69,10 +69,13 @@
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btnregistrar">Registrarse</button>
         </div>
-
         <div class="col-xs-4">
-          <button  href="../vista/login_vista.php"  type="submit" class="btn btn-primary btnregistrar">Ingresar</button>
+        <a href="../vistas/login_vista.php">Ingresar</a>
         </div>
+  
+    </div>
+   
+      
         <!-- /.col -->
       </div>
     </form>
