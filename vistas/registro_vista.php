@@ -71,7 +71,7 @@
         </div>
 
         <div class="col-xs-4">
-          <button  href="../vista/login_vista.php"  type="submit" class="btn btn-primary btnregistrar">Ingresar </button>
+          <button  href="../vista/login_vista.php"  type="submit" class="btn btn-primary btnregistrar">Ingresar</button>
         </div>
         <!-- /.col -->
       </div>
