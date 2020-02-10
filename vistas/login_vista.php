@@ -40,6 +40,6 @@
         </div>
     </div>
 
-    <script src="../vistas/Js/Validaciones.js"></script>
+    <script type="text/javascript" src="../vistas/Js/Validaciones.js"></script>
 </body>
 </html>
