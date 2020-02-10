@@ -24,12 +24,12 @@
                 <div class="col-12 user-img">
                     <img src="../vistas/Img/User_icono1.png" th:src="@{/img/user.png}"/>
                 </div>
-                <form class="col-12" action="login_vista.php" method="Post">
+                <form class="col-12" action="../vistas/login_vista.php" method="Post">
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control user" placeholder="Nombre de usuario" name="username" />
+                        <input type="text" class="form-control user" placeholder="Nombre de usuario" name="login" id="login" />
                     </div> 
                   <div class="form-group" id="contrasena-group">
-                    <input type="password" class="form-control passw" placeholder="Contraseña" name="contraseña" /> 
+                    <input type="password" class="form-control passw" placeholder="Contraseña" name="contra2" id="contra" /> 
                     
                 </div>
                     <button type="submit" class="btn btn-primary btnAction" name="submit"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
