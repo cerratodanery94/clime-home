@@ -30,6 +30,7 @@ body{
     border:0;
     padding-left: 54px;
     border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 .form-group::before{
     font-family: "Font Awesome\ 5 Free";
