@@ -29,24 +29,40 @@
     <p class="login-box-msg">Registro de Usuarios</p>
 
     <form action="../modelos/registrar_modelo.php" method="POST" onsubmit="return validar();">
+       
+
       <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>
         <input type="text" class="form-control nombres" placeholder="Nombres"  name="nombres" id="nombres">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+
+
+
+      
       <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Apellidos</label>
         <input type="text" class="form-control apellidos" placeholder="Apellidos"  name="apellidos" id="apellidos" >
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
       <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
         <input type="text" style="text-transform:uppercase" class="form-control usuario" placeholder="Usuario" name="usuario" id="usuario">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
         <input type="password" class="form-control contra" placeholder="Contraseña" name="contra" id="contra" >
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Confirmar </label>
+        <input type="password" class="form-control contra" placeholder="Confirmar Contraseña" name="confirmar_contra" id="confirmar_contra" >
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
         <input type="text" class="form-control correo" placeholder="Correo" name="correo" id="correo" >
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
