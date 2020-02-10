@@ -10,9 +10,9 @@ try{
     require '../modelos/conectar.php';
 	
 	
-	$sql="SELECT * FROM USUARIO WHERE USUARIO= :login";
+	$sql="SELECT * FROM USUARIO WHERE USU_USUARIO= :login";
 	
-	$resultado=$base->prepare($sql);	
+	$resultado=$conexion->prepare($sql);	
 		
 	$resultado->execute(array(":login"=>$login));
 		
@@ -27,10 +27,10 @@ try{
 
 		if ($contador>0) {
 			session_start();
-			$_SESSION["USUARIO"]=$_POST["login"];
+			$_SESSION["USU_USUARIO"]=$_POST["login"];
 			header("location:../vistas/index.php");
 		}else{
-            echo '<script>alert("USUARIO O CONTRASEÑA INCCORRECTA ");window.location= "../vistas/login_vista.php"</script>';
+            echo '<script>alert("USUARIO O CONTRASEÑA INCCRRECTA ");window.location= "../vistas/login_vista.php"</script>';
 		}
 	
 		//$resultado->closeCursor();
