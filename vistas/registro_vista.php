@@ -53,11 +53,7 @@
         <input type="password" class="form-control contra" placeholder="Contraseña" name="contra" id="contra" >
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Confirmar </label>
-        <input type="password" class="form-control contra" placeholder="Confirmar Contraseña" name="confirmar_contra" id="confirmar_contra" >
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
+
       <div class="form-group has-feedback">
       <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
         <input type="text" class="form-control correo" placeholder="Correo" name="correo" id="correo" >

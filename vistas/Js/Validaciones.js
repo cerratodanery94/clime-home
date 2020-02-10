@@ -9,17 +9,17 @@ function validar(){
     nombres=document.getElementById('nombres').value;
     apellidos=document.getElementById('apellidos').value;
     correo=document.getElementById('correo').value;
-    confirmar_contra=document.getElementById('confirmar_contra');
+   // confirmar_contra=document.getElementById('confirmar_contra');
     
     if(usuario.length>15 || nombres.length>50 || apellidos.length>50 || correo.length>60){
         alert("Los campos no cumplen con el tamaño según el definido en la base de datos ");
         return false;
     }
-    else if(relleno_espacios.test(usuario) ||relleno_espacios.test(contra) ||relleno_espacios.test(confirmar_contra) || relleno_espacios.test(nombres) ||relleno_espacios.test(apellidos) || relleno_espacios.test(correo)){
+    else if(relleno_espacios.test(usuario) ||relleno_espacios.test(contra)  || relleno_espacios.test(nombres) ||relleno_espacios.test(apellidos) || relleno_espacios.test(correo)){
         alert("Los campos no pueden ser rellenados con espacios");
         return false;
     }
-    else if(usuario.length==0 || contra.length==0 || confirmar_contra.length==0 || nombres.length==0 || apellidos.length==0 || correo.length==0){
+    else if(usuario.length==0 || contra.length==0  || nombres.length==0 || apellidos.length==0 || correo.length==0){
         alert("Verifique los datos, hay campos vacios");
         return false;
     }
@@ -31,14 +31,14 @@ function validar(){
         alert("La contraseña debe tener al menos 8 caracteres");
         return false;
     }
-    else if(espacio.test(usuario) ||espacio.test(contra) ||espacio.test(confirmar_contra)){
+    else if(espacio.test(usuario) ||espacio.test(contra)){
         alert("Los campos usuario y contraseña  no debe tener espacios");
         return false; 
     }
-    else if(contra!=confirmar_contra){
+    /*else if(contra!=confirmar_contra){
     alert("No coinciden las contraseñas");
-    return false; 
-    }
+    return true; 
+    }*/
     else if(!p_correo.test(correo)) {
         alert("El correo no es valido");
         return false;
