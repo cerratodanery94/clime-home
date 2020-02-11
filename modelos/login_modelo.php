@@ -1,7 +1,7 @@
 <?php
 
 try{
-	$login=htmlentities(addslashes($_POST["login"]));
+	$login=strtoupper(htmlentities(addslashes($_POST["login"])));
 	
 	$password=htmlentities(addslashes($_POST["contra2"]));
 	$contador=0;

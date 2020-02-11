@@ -22,9 +22,9 @@
                 <div class="col-12 user-img">
                     <img src="../vistas/Img/User_icono1.png" th:src="@{/img/user.png}"/>
                 </div>
-                <form class="col-12" action="../modelos/login_modelo.php" method="Post" onsubmit="return validar();">
+                <form class="col-12" action="../modelos/login_modelo.php" method="Post" onsubmit="return validar_login();">
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control user" placeholder="Nombre de usuario" name="login" id="login" />
+                        <input type="text" style="text-transform:uppercase" class="form-control user" placeholder="Nombre de usuario" name="login" id="login" />
                     </div> 
                   <div class="form-group" id="contrasena-group">
                     <input type="password" class="form-control passw" placeholder="Contraseña" name="contra2" id="contra2" /> 

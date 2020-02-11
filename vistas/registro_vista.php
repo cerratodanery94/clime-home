@@ -28,7 +28,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Registro de Usuarios</p>
 
-    <form action="../modelos/registrar_modelo.php" method="POST" onsubmit="return validar();">
+    <form action="../modelos/registrar_modelo.php" method="POST" onsubmit="return validar_registro();">
        
 
       <div class="form-group has-feedback">
@@ -51,6 +51,11 @@
       <div class="form-group has-feedback">
       <label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
         <input type="password" class="form-control contra" placeholder="Contraseña" name="contra" id="contra" >
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+      <label for="inputEmail3" class="col-sm-2 control-label">Confimar contraseña</label>
+        <input type="password" class="form-control contra" placeholder="Confimar contraseña" name="confirmar_contra" id="confirmar_contra" >
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 
