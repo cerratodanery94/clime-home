@@ -35,7 +35,7 @@
                  <div class="col-12 Registrar">
                     <a href="registro_vista.php">Registrarse</a><i class="fas fas-sign-in-alt"></i>
                 <div class="col-12 forgot">
-                    <a href="#">Recuperar contraseña</a>
+                    <a href="../vistas/recuperar_correo.php">Recuperar contraseña</a>
                 </div>
             </div>
         </div>

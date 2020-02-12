@@ -70,4 +70,53 @@ function validar_login() {
         return false; 
     }
 }
+function validar_correo(){
+    var usuario2;
+    var espacio3=/\s/;
+    var relleno_espacios3=/^\s+$/;
+    usuario2=document.getElementById('usuario2').value; 
+    if(usuario2.length==0){
+        alert("El campo usuario se encuentra vacio");
+        return false;
+    } 
+    else if(usuario2.length>15 ){
+        alert("El campo usuario no cumplen con el tamaño");
+        return false;
+    }
+    else if(espacio3.test(usuario2)){
+        alert("El campo usuario no debe tener espacios");
+        return false; 
+    }
+    else if(relleno_espacios3.test(usuario2)){
+        alert("El campo usuario no pueden ser rellenado con espacios");
+        return false;
+    }
+    
+}
+ function validar_restablecer_contra(){
+    var nueva_contra;
+    var confirmar_contra2;
 
+    var espacio4=/\s/;
+    var relleno_espacios4=/^\s+$/;
+    nueva_contra=document.getElementById('nueva_contra').value; 
+    confirmar_contra2=document.getElementById('confirmar_contra2').value; 
+
+    if(nueva_contra.length==0 || confirmar_contra2.length==0 ){
+        alert("Verifique los datos, hay campos vacios");
+        return false;
+
+    }
+    else if( nueva_contra.length<=8 ||confirmar_contra2.length<=8){
+        alert("La contraseña debe tener al menos 8 caracteres");
+        return false;
+    }
+    else if(espacio4.test(nueva_contra)||espacio4.test(confirmar_contra2)){
+        alert("Los campos no deben tener espacios");
+        return false; 
+    }
+    else if(relleno_espacios4.test(nueva_contra)||relleno_espacios4.test(confirmar_contra2) ){
+        alert("Los campos no pueden ser rellenados con espacios");
+        return false;
+    }
+ }
