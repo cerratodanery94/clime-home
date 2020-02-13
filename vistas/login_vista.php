@@ -48,7 +48,7 @@
         <div class="input-group">
         <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra2">
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye icon"></span></button>
         </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <br></br>
-    <div style='float:center;margin:auto;width:185px;'><a>¿NO TIENES UNA CUENTA?  </a><a href="../vistas/index.php">REGISTRATE</a> </div>
+    <div style='float:center;margin:auto;width:185px;'><a>¿NO TIENES UNA CUENTA?  </a><a href="../vistas/registro_vista.php">REGISTRATE</a> </div>
 </div>
         <!-- /.col -->
       </div>

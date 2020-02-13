@@ -39,7 +39,7 @@
         <input id="nueva_contra" type="password" class="form-control nombres" placeholder="Nueva Contraseña" name="nueva_contra">
         <div class="input-group-append">
         <div class="input-group">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye-slash icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye icon"></span></button>
         </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="Confirmar Contraseña" name="confirmar_contra2">
         <div class="input-group-append">
         <div class="input-group">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye icon"></span></button>
         </div>
         </div>
       </div>

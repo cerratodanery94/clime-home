@@ -52,7 +52,7 @@
         <div class="input-group">
         <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye icon"></span></button>
         </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
        <div class="input-group">
         <input id="confirmar_contra" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye icon"></span></button>
         </div>
         </div>
       </div>
