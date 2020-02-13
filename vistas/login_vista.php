@@ -1,46 +1,78 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title> ClimeHome </title>
-<meta charset="Utf-8"/>
-<!--JQUERY-->
-<script src="../vistas/Js/jquery-3.4.1.min.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Iniciar Sesión</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../vistas/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../vistas/Css/Login.css" >
 
-<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-<link rel="stylesheet" href="../vistas/Boostrap2/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../vistas/plugins/iCheck/square/blue.css">
+  <!-- Validacion del ojo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Los iconos tipo Solid de Fontawesome-->
-<link rel="stylesheet" href="../vistas/Fontawesome/css/solid.min.css">
-
-<!-- Nuestro css-->
-<link rel="stylesheet" type="text/css" href="../vistas/Css/Index.css" >
-
+  <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
-<body>
-    <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <b>Iniciar</b>Sesión
+    <br></br>
+  </div>
+  <div class="register-box-body">
+    <p class="login-box-msg"></p>
+    <form action="../modelos/login_modelo.php" method="POST" onsubmit="return validar_login();">
+    
                 <div class="col-12 user-img">
                     <img src="../vistas/Img/User_icono1.png" th:src="@{/img/user.png}"/>
                 </div>
-                <form class="col-12" action="../modelos/login_modelo.php" method="Post" onsubmit="return validar_login();">
-                    <div class="form-group" id="user-group">
-                        <input type="text" style="text-transform:uppercase" class="form-control user" placeholder="Nombre de usuario" name="login" id="login" />
-                    </div> 
-                  <div class="form-group" id="contrasena-group">
-                    <input type="password" class="form-control passw" placeholder="Contraseña" name="contra2" id="contra2" /> 
-                    
-                </div>
-                    <button type="submit" class="btn btn-primary btnAction" name="submit"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
-                </form>
-                 <div class="col-12 Registrar">
-                    <a href="registro_vista.php">Registrarse</a><i class="fas fas-sign-in-alt"></i>
-                <div class="col-12 forgot">
-                    <a href="../vistas/recuperar_correo.php">Recuperar contraseña</a>
-                </div>
-            </div>
+    
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control nombres" placeholder="NOMBRE DE USUARIO"  name="login" id="login">
+        <span class="	glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <div class="input-group">
+        <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra2">
+        <div class="input-group-append">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
+      </div>
+      <br></br>
+
+        <!-- /.col -->
+        <div class="col-12 forgot">
+        <div style='float:center;margin:auto;width:195px;'><button type="submit" class="btn btn-primary ">INGRESAR</button></div>
         </div>
     </div>
-
-    <script type="text/javascript" src="../vistas/Js/Validaciones.js"></script>
+    <br></br>
+    <div style='float:center;margin:auto;width:185px;'><a>¿NO TIENES UNA CUENTA?  </a><a href="../vistas/index.php">REGISTRATE</a> </div>
+</div>
+        <!-- /.col -->
+      </div>
+    </form>
+  </div>
+  <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+<!-- jQuery 2.2.3 -->
+<script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../vistas/Js/Validaciones.js"></script>
+<script src="../vistas/plugins/iCheck/icheck.min.js"></script>
 </body>
 </html>

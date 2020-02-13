@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../vistas/plugins/iCheck/square/blue.css">
+ <!-- Validacion del ojo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
@@ -30,20 +34,27 @@
     <form action="" method="POST" onsubmit="return validar_restablecer_contra();">
        
 
-      <div class="form-group has-feedback">
-      
-        <input type="password" class="form-control nombres" placeholder="Nueva Contraseña"  name="nueva_contra" id="nueva_contra">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    <div class="form-group has-feedback">
+       <div class="input-group">
+        <input id="nueva_contra" type="password" class="form-control nombres" placeholder="Nueva Contraseña" name="nueva_contra">
+        <div class="input-group-append">
+        <div class="input-group">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
+      </div>
       </div>
 
       <div class="form-group has-feedback">
-      <input type="password" class="form-control nombres" placeholder="Confirmar Contraseña"  name="confirmar_contra2" id="confirmar_contra2">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+       <div class="input-group">
+        <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="Confirmar Contraseña" name="confirmar_contra2">
+        <div class="input-group-append">
+        <div class="input-group">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
       </div>
-      
-
-    
-      
+      </div> 
       
       <div class="row">
         
@@ -51,12 +62,8 @@
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-recuperar">Recuperar</button>
         </div>
-        
-  
     </div>
-   
-      
-        <!-- /.col -->
+           <!-- /.col -->
       </div>
     </form>
   </div>

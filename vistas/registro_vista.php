@@ -17,81 +17,78 @@
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../vistas/plugins/iCheck/square/blue.css">
+    <!-- Validacion del ojo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <b>Clime</b>Home
-  </div>
+  <b>Registro de</b> Usuario
+    </div>
   <div class="register-box-body">
-    <p class="login-box-msg">Registro de Usuarios</p>
+    <p class="login-box-msg"></p>
 
     <form action="../modelos/registrar_modelo.php" method="POST" onsubmit="return validar_registro();">
        
 
+    <div class="form-group has-feedback">
+      <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
+        <input type="text" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
+        <span class="	glyphicon glyphicon-text-size form-control-feedback"></span>
+      </div>     
       <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>
-        <input type="text" class="form-control nombres" placeholder="Nombres"  name="nombres" id="nombres">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <input type="text" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
+        <span class="	glyphicon glyphicon-text-size form-control-feedback"></span>
       </div>
-      
       <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Apellidos</label>
-        <input type="text" class="form-control apellidos" placeholder="Apellidos"  name="apellidos" id="apellidos" >
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <input type="text" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
+        <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-
       <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
-        <input type="text" style="text-transform:uppercase" class="form-control usuario" placeholder="Usuario" name="usuario" id="usuario">
+        <div class="input-group">
+        <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
+        <div class="input-group-append">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+       <div class="input-group">
+       <div class="input-group">
+        <input id="confirmar_contra" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
+        <div class="input-group-append">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
-        <input type="password" class="form-control contra" placeholder="Contraseña" name="contra" id="contra" >
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Confimar contraseña</label>
-        <input type="password" class="form-control contra" placeholder="Confimar contraseña" name="confirmar_contra" id="confirmar_contra" >
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-
-      <div class="form-group has-feedback">
-      <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
-        <input type="text" class="form-control correo" placeholder="Correo" name="correo" id="correo" >
-        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-      </div>
       <div class="row">
-        
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btnregistrar">Registrarse</button>
-        </div>
-        <div class="col-xs-4">
-        <a href="../vistas/login_vista.php">Ingresar</a>
-        </div>
-  
+        <div class="col-12 forgot">
+        <div style='float:center;margin:auto;width:90px;'><button type="submit" class="btn btn-primary btnregistrar">REGISTRARSE</button></div>
+        </div>     
     </div>
-   
-      
         <!-- /.col -->
       </div>
     </form>
   </div>
+  <div style='float:center;margin:auto;width:185px;'><a>¿YA TIENES CUENTA?    </a><a href="../vistas/login_vista.php">INICIAR SESIÓN</a> </div>
+</div>
   <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
-
 <!-- jQuery 2.2.3 -->
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../vistas/Js/Validaciones.js"></script>
-
 <script src="../vistas/plugins/iCheck/icheck.min.js"></script>
-
-
 </body>
 </html>

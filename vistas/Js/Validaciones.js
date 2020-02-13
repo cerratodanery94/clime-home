@@ -120,3 +120,53 @@ function validar_correo(){
         return false;
     }
  }
+ function mostrarPassword(){
+    var cambio = document.getElementById ("contra");
+    if (cambio.type == "password"){
+        cambio.type="text";
+        $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+        }else{
+            cambio.type="password";
+            $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+        }
+    }
+    function mostrarPassword2(){
+        var cambio = document.getElementById ("confirmar_contra");
+        if (cambio.type == "password"){
+            cambio.type="text";
+            $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+            }else{
+                cambio.type="password";
+                $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+            }
+        }
+    function mostrarPassword_login(){
+        var cambio = document.getElementById ("contra2");
+        if (cambio.type == "password"){
+            cambio.type="text";
+                $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+                }else{
+                 cambio.type="password";
+                  $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+            }
+        }
+    function mostrarPassword_recuperarcontra(){
+            var cambio = document.getElementById ("nueva_contra");
+            if (cambio.type == "password"){
+                cambio.type="text";
+                    $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+                    }else{
+                     cambio.type="password";
+                      $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+                }
+            }
+    function mostrarPassword_recuperarcontra2(){
+            var cambio = document.getElementById ("confirmar_contra2");
+            if (cambio.type == "password"){
+                cambio.type="text";
+                    $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+                    }else{
+                     cambio.type="password";
+                        $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+                    }
+                }
