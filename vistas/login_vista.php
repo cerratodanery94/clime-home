@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../vistas/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../vistas/Css/Login.css" >
+  <link rel="stylesheet" type="text/css" href="../vistas/Css/Style.css" >
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -36,7 +36,7 @@
     <form action="../modelos/login_modelo.php" method="POST" onsubmit="return validar_login();">
     
                 <div class="col-12 user-img">
-                    <img src="../vistas/Img/User_icono1.png" th:src="@{/img/user.png}"/>
+                    <img src="../vistas/Img/User_icono2.png" th:src="@{/img/user.png}"/>
                 </div>
     
       <div class="form-group has-feedback">
@@ -52,8 +52,10 @@
         </div>
         </div>
       </div>
-      <br></br>
-
+      
+      <div style='float:center;margin:auto;width:145px;' > </a><a href="../vistas/recuperar_correo.php">¿Haz olvido tu contraseña?</a> </>
+</div>
+<br></br>
         <!-- /.col -->
         <div class="col-12 forgot">
         <div style='float:center;margin:auto;width:195px;'><button type="submit" class="btn btn-primary ">INGRESAR</button></div>

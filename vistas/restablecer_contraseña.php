@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Registro de usuarios</title>
+  <title>Reestablecer contraseña</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -39,7 +39,7 @@
         <input id="nueva_contra" type="password" class="form-control nombres" placeholder="Nueva Contraseña" name="nueva_contra">
         <div class="input-group-append">
         <div class="input-group">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye-slash icon"></span></button>
         </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="Confirmar Contraseña" name="confirmar_contra2">
         <div class="input-group-append">
         <div class="input-group">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon"></span></button>
         </div>
         </div>
       </div>
@@ -59,9 +59,9 @@
       <div class="row">
         
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-recuperar">Recuperar</button>
-        </div>
+        <div class="col-xs-7">
+        <button type="submit" class="btn btn-primary btn-recuperar">Recuperar</button>
+        </>
     </div>
            <!-- /.col -->
       </div>
@@ -77,7 +77,5 @@
 <script src="../vistas/Js/Validaciones.js"></script>
 
 <script src="../vistas/plugins/iCheck/icheck.min.js"></script>
-
-
 </body>
 </html>
