@@ -14,7 +14,7 @@ try {
         echo $nueva_contra."<br>";
         
         echo$pass_nueva_cifrado."<br>";*/
-		$sql4=$conexion->query("UPDATE USUARIO SET USU_PASSWORD='$pass_nueva_cifrado' WHERE USU_CODIGO='$id_usu'");
+		$sql4=$conexion->query("UPDATE TBL_USUARIO SET USU_PASSWORD='$pass_nueva_cifrado' WHERE USU_CODIGO='$id_usu'");
      
         //$resultado4->execute(array(":nueva_contra"=>$pass_nueva_cifrado,":usuario"=>$_SESSION['usu']));
         if ($sql4) {

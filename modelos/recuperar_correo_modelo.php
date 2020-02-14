@@ -20,7 +20,7 @@ try{
     require '../modelos/conectar.php';
 	
 	
-	$sql="SELECT * FROM USUARIO WHERE USU_USUARIO= :usuario";
+	$sql="SELECT * FROM TBL_USUARIO WHERE USU_USUARIO= :usuario";
 	
 	$resultado=$conexion->prepare($sql);	
 		
@@ -31,7 +31,7 @@ try{
         echo '<script>alert("Usuario no  existe");window.location= "../vistas/recuperar_correo.php"</script>';
     }else{
        
-        $sql2="SELECT * FROM USUARIO WHERE USU_USUARIO= :usuario";
+        $sql2="SELECT * FROM TBL_USUARIO  WHERE USU_USUARIO= :usuario";
         $resultado2=$conexion->prepare($sql);
         $resultado2->execute(array(":usuario"=>$usuario2));
         session_start();

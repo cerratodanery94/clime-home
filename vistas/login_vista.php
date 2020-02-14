@@ -39,7 +39,7 @@
                 </div>
     
       <div class="form-group has-feedback">
-        <input type="text" class="form-control nombres" placeholder="NOMBRE DE USUARIO"  name="login" id="login">
+        <input type="text" class="form-control nombres"  style="text-transform:uppercase" placeholder="NOMBRE DE USUARIO"  name="login" id="login">
         <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="col-xs-15">
-      <div style='float:center;margin:auto;width:175px;' ><a style= text-aling:center; href="../vistas/recuperar_correo.php">¿HAZ OLVIDADO TU CONTRASEÑA?</a>
+      <div style='float:center;margin:auto;width:175px;' ><a style= 'text-aling:center;' href="../vistas/recuperar_correo.php">¿HAZ OLVIDADO TU CONTRASEÑA?</a>
 </div>
 </div>
 <br></br>

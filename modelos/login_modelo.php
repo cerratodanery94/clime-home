@@ -10,7 +10,7 @@ try{
     require '../modelos/conectar.php';
 	
 	
-	$sql="SELECT * FROM USUARIO WHERE USU_USUARIO= :login";
+	$sql="SELECT * FROM TBL_USUARIO WHERE USU_USUARIO= :login";
 	
 	$resultado=$conexion->prepare($sql);	
 		
