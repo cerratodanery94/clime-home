@@ -32,7 +32,8 @@
   <div class="register-box-body">
     <p class="login-box-msg"></p>
 
-    <form action="../modelos/registrar_modelo.php" method="POST" onsubmit="return validar_registro();">
+    <form action="../modelos/registrar_modelo.php" method="POST" name="f">
+       
        
 
     <div class="form-group has-feedback">
@@ -70,10 +71,11 @@
         <input type="text" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
+      <div id ="alerta"></div>
       <div class="row">
         <!-- /.col -->
         <div class="col-12 forgot">
-        <div style='float:center;margin:auto;width:90px;'><button type="submit" class="btn btn-primary btnregistrar">REGISTRARSE</button></div>
+        <div style='float:center;margin:auto;width:90px;'><button type="button" class="btn btn-primary btnregistrar" onclick="validar();">REGISTRARSE</button></div>
         </div>     
     </div>
         <!-- /.col -->

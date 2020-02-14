@@ -170,6 +170,17 @@ function validar_correo(){
                         $('.icon4').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
                     }
                 }
+                function validar() {
+                    //alert('todo bien');
+                    var formulario= document.f;
+                    if (formulario.nombres.value=="") {
+                        //alert('Campos vacios');
+                        document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO NOMBRE VACIO</div>';
+                        return false;
+                    }
+                    formulario.submit();
+                    
+                }
 
            
                
