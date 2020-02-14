@@ -32,7 +32,7 @@
   <div class="register-box-body">
     <p class="login-box-msg"></p>
 
-    <form action="../modelos/registrar_modelo.php" method="POST" name="f">
+    <form action="../modelos/registrar_modelo.php" method="POST" name="f" onsubmit="return validar_registro();">
        
        
 
@@ -75,7 +75,7 @@
       <div class="row">
         <!-- /.col -->
         <div class="col-12 forgot">
-        <div style='float:center;margin:auto;width:90px;'><button type="button" class="btn btn-primary btnregistrar" onclick="validar();">REGISTRARSE</button></div>
+        <div style='float:center;margin:auto;width:90px;'><button type="submit" class="btn btn-primary btnregistrar" >REGISTRARSE</button></div>
         </div>     
     </div>
         <!-- /.col -->

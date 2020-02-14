@@ -30,13 +30,17 @@ try{
     if ($num_rows==0){ 
         echo '<script>alert("Usuario no  existe");window.location= "../vistas/recuperar_correo.php"</script>';
     }else{
+       
         $sql2="SELECT * FROM USUARIO WHERE USU_USUARIO= :usuario";
         $resultado2=$conexion->prepare($sql);
         $resultado2->execute(array(":usuario"=>$usuario2));
-        while($registro=$resultado2->fetch(PDO::FETCH_ASSOC)){			
-            $usu=$registro['USU_USUARIO'];
-            $correo=$registro['USU_CORREO'];
-        
+        session_start();
+        while($registro=$resultado2->fetch(PDO::FETCH_ASSOC)){	
+            
+            $_SESSION['id_usu']=$registro['USU_CODIGO'];
+            $_SESSION['usu']=$registro['USU_USUARIO'];
+            $_SESSION['correo']=$registro['USU_CORREO'];
+           
         }
     
    
@@ -54,7 +58,7 @@ try{
 
     //Destinatarios
     $mail->setFrom('system32unah@gmail.com', 'System32');    //desde donde se va enviar
-    $mail->addAddress($correo, $usu);     // Agregar un destinatario
+    $mail->addAddress( $_SESSION['correo'], $_SESSION['usu']);     // Agregar un destinatario
  
 
     // Archivos adjuntos archivos img

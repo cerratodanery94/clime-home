@@ -30,7 +30,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">INGRESE LOS SIGUIENTES DATOS</p>
 
-    <form action="" method="POST" onsubmit="return validar_restablecer_contra();">
+    <form action="../modelos/restablecer_modelo.php" method="POST" onsubmit="return validar_restablecer_contra();">
     <div class="form-group has-feedback">
        <div class="input-group">
         <input id="nueva_contra" type="password" class="form-control nombres" placeholder="NUEVA CONTRASEÑA" name="nueva_contra">
