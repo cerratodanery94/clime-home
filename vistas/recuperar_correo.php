@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Recuperar Contraseña</title>
+  <title>Recuperar contraseña</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -26,30 +25,23 @@
     <b>Recuperar</b>Contraseña 
   </div>
   <div class="register-box-body">
-    <p class="login-box-msg">Recuperar Contraseña Por Correo</p>
+    <p class="login-box-msg">RECUPERAR CONTRASEÑA POR CORREO</p>
 
     <form action="../modelos/recuperar_correo_modelo.php" method="POST" onsubmit="return validar_correo();">
+    <div class="form-group has-feedback">
        
-
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="Ingrese Usuario"  name="usuario2" id="usuario2">
+        <input id="usuario2" type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="INGRESE USUARIO" name="usuario2">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-     
       
-
       <div class="row">
         
         <!-- /.col -->
-        <div class="col-4">
-      <button type="submit" class="btn btn-primary btncorreo">Recuperar Por Correo</button>
-        </div>
-        
-  
+        <div class="col-xs-10">
+        <div style='float:center;margin:auto;width:119Px;'><button type="submit" class="btn btn-primary btn-correo">RECUPERAR POR CORREO</button>
+        </>
     </div>
-   
-      
-        <!-- /.col -->
+           <!-- /.col -->
       </div>
     </form>
   </div>
@@ -60,10 +52,8 @@
 <!-- jQuery 2.2.3 -->
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
-<script type="text/javascript" src="../vistas/Js/Validaciones.js"></script>
+<script src="../vistas/Js/Validaciones.js"></script>
 
 <script src="../vistas/plugins/iCheck/icheck.min.js"></script>
-
-
 </body>
 </html>

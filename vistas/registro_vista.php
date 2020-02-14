@@ -38,11 +38,11 @@
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
         <input type="text" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
-        <span class="	glyphicon glyphicon-text-size form-control-feedback"></span>
+        <span class="	fa fa-id-card form-control-feedback"></span>
       </div>     
       <div class="form-group has-feedback">
         <input type="text" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
-        <span class="	glyphicon glyphicon-text-size form-control-feedback"></span>
+        <span class="	fa fa-id-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="text" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
@@ -52,7 +52,7 @@
         <div class="input-group">
         <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
         </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
        <div class="input-group">
         <input id="confirmar_contra" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon1"></span></button>
         </div>
         </div>
       </div>
@@ -79,8 +79,10 @@
         <!-- /.col -->
       </div>
     </form>
-  </div>
-  <div style='float:center;margin:auto;width:185px;'><a>¿YA TIENES CUENTA?    </a><a href="../vistas/login_vista.php">INICIAR SESIÓN</a> </div>
+    <br>
+    <div style='float:center;margin:auto;width:185px;'><a>¿YA TIENES USUARIO?    </a><a href="../vistas/login_vista.php">INICIAR SESIÓN</a> </div>
+ <br>
+  </div>  
 </div>
   <!-- /.form-box -->
 </div>

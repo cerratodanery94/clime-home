@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="hold-transition register-page">
@@ -46,14 +45,15 @@
 
       <div class="form-group has-feedback">
         <div class="input-group">
-        <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra2">
+        <input id="contra2" type="password" class="form-control" placeholder="CONTRASEÑA" name="contra2">
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye icon"></span></button>
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_login()"><span class="fa fa-eye-slash icon2"></span></button>
         </div>
         </div>
       </div>
-      
-      <div style='float:center;margin:auto;width:145px;' > </a><a href="../vistas/recuperar_correo.php">¿Haz olvido tu contraseña?</a> </>
+      <div class="col-xs-15">
+      <div style='float:center;margin:auto;width:175px;' ><a style= text-aling:center; href="../vistas/recuperar_correo.php">¿HAZ OLVIDADO TU CONTRASEÑA?</a>
+</div>
 </div>
 <br></br>
         <!-- /.col -->
@@ -62,7 +62,7 @@
         </div>
     </div>
     <br></br>
-    <div style='float:center;margin:auto;width:185px;'><a>¿NO TIENES UNA CUENTA?  </a><a href="../vistas/registro_vista.php">REGISTRATE</a> </div>
+    <div style='float:center;margin:auto;width:180px;'><a>¿NO TIENES USUARIO?  </a><a href="../vistas/registro_vista.php">REGISTRATE</a> </div>
 </div>
         <!-- /.col -->
       </div>

@@ -124,49 +124,52 @@ function validar_correo(){
     var cambio = document.getElementById ("contra");
     if (cambio.type == "password"){
         cambio.type="text";
-        $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
         }else{
             cambio.type="password";
-            $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
         }
     }
     function mostrarPassword2(){
-        var cambio = document.getElementById ("confirmar_contra");
-        if (cambio.type == "password"){
-            cambio.type="text";
-            $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+        var cambio1 = document.getElementById ("confirmar_contra");
+        if (cambio1.type == "password"){
+            cambio1.type="text";
+            $('.icon1').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
             }else{
-                cambio.type="password";
-                $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+                cambio1.type="password";
+                $('.icon1').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
             }
         }
     function mostrarPassword_login(){
-        var cambio = document.getElementById ("contra2");
-        if (cambio.type == "password"){
-            cambio.type="text";
-                $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+        var cambio2 = document.getElementById ("contra2");
+        if (cambio2.type == "password"){
+            cambio2.type="text";
+                $('.icon2').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
                 }else{
-                 cambio.type="password";
-                  $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+                 cambio2.type="password";
+                  $('.icon2').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
             }
         }
-    function mostrarPassword_recuperarcontra(){
-            var cambio = document.getElementById ("nueva_contra");
-            if (cambio.type == "password"){
-                cambio.type="text";
-                    $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
-                    }else{
-                     cambio.type="password";
-                      $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
-                }
-            }
+        function mostrarPassword_recuperarcontra(){
+                    var cambio3 = document.getElementById ("nueva_contra");
+                    if (cambio3.type == "password"){
+                        cambio3.type="text";
+                            $('.icon3').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+                            }else{
+                             cambio3.type="password";
+                              $('.icon3').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                        }
+                    }
     function mostrarPassword_recuperarcontra2(){
-            var cambio = document.getElementById ("confirmar_contra2");
-            if (cambio.type == "password"){
-                cambio.type="text";
-                    $('.icon').removeclass('fa fa-eye-slash').addclass('fa fa-eye');
+            var cambio4 = document.getElementById ("confirmar_contra2");
+            if (cambio4.type == "password"){
+                cambio4.type="text";
+                    $('.icon4').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
                     }else{
-                     cambio.type="password";
-                        $('.icon').removeclass('fa fa-eye').addclass('fa fa-eye-slash');
+                     cambio4.type="password";
+                        $('.icon4').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
                     }
                 }
+
+           
+               
