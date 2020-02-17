@@ -38,11 +38,11 @@
 
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
-        <input type="text" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
+        <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>     
       <div class="form-group has-feedback">
-        <input type="text" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
+        <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

@@ -1,3 +1,11 @@
+<?php
+session_start();
+//error_reporting(0);
+if (!isset($_SESSION['token'])||!isset($_SESSION['id_usu'])||!isset($_SESSION['fec_venc'])) {
+   echo '<script>alert("NO TIENES AUTORIZACION");window.location.href="../vistas/login_vista.php"</script>';
+   die();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

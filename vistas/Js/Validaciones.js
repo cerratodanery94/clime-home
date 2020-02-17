@@ -1,8 +1,8 @@
 function validar_registro(){
 var usuario,contra,nombres,apellidos,correo,confirmar_contra;
 var espacio=/\s/;
-var patron = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/
-//var patron=/^[A-Za-z\s]+$/;
+//var patron = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/
+var patron=/^[A-Za-z\s]+$/;
 var p_correo=/\w+@\w+\.+[a-z]/;
 var relleno_espacios=/^\s+$/;
 usuario=document.getElementById('usuario').value;

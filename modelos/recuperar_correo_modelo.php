@@ -1,4 +1,5 @@
 <?php
+
 // Importar clases PHPMailer en el espacio de nombres global
 // Deben estar en la parte superior de su script, no dentro de una función
 use PHPMailer\PHPMailer\PHPMailer;
@@ -7,44 +8,49 @@ use PHPMailer\PHPMailer\Exception;
 require '../vistas/PHPMailer/Exception.php';
 require '../vistas/PHPMailer/PHPMailer.php';
 require '../vistas/PHPMailer/SMTP.php';
+require '../controladores/funciones.php';
 
 
 // La creación de instancias y pasar `true` permite excepciones
 $mail = new PHPMailer(true);
 
 try{
-	$usuario2=strtoupper(htmlentities(addslashes($_POST["usuario2"])));
+    $usuario2=strtoupper(htmlentities(addslashes($_POST["usuario2"])));
+    $token=generar_token();
+    $fecha_ven_token=date('Y-m-d H:m:s',strtotime('+24 hours'));
 	$contador=0;
 	
-	
     require '../modelos/conectar.php';
-	
-	
 	$sql="SELECT * FROM TBL_USUARIO WHERE USU_USUARIO= :usuario";
-	
 	$resultado=$conexion->prepare($sql);	
-		
     $resultado->execute(array(":usuario"=>$usuario2));
     $num_rows = $resultado->fetchColumn();
         
     if ($num_rows==0){ 
-        echo '<script>alert("Usuario no  existe");window.location= "../vistas/recuperar_correo.php"</script>';
+        echo '<script>alert("INTENTELO DE NUEVO");window.location= "../vistas/recuperar_correo.php"</script>';
     }else{
+
+        $sql2="UPDATE TBL_USUARIO SET USU_TOKEN=:token,USU_FECHA_TOKEN=:fecha_vencimiento WHERE USU_USUARIO=:usuario2";
+        $resultado2=$conexion->prepare($sql2);
+        $resultado2->execute(array(":token"=>$token,":fecha_vencimiento"=>$fecha_ven_token,":usuario2"=>$usuario2));
        
-        $sql2="SELECT * FROM TBL_USUARIO  WHERE USU_USUARIO= :usuario";
-        $resultado2=$conexion->prepare($sql);
-        $resultado2->execute(array(":usuario"=>$usuario2));
+        $sql3="SELECT * FROM TBL_USUARIO  WHERE USU_USUARIO=:usuario3";
+        $resultado3=$conexion->prepare($sql3);
+        $resultado3->execute(array(":usuario3"=>$usuario2));
         session_start();
-        while($registro=$resultado2->fetch(PDO::FETCH_ASSOC)){	
+        while($registro=$resultado3->fetch(PDO::FETCH_ASSOC)){	
             
             $_SESSION['id_usu']=$registro['USU_CODIGO'];
             $_SESSION['usu']=$registro['USU_USUARIO'];
             $_SESSION['correo']=$registro['USU_CORREO'];
-           
+            $_SESSION['token']=$registro['USU_TOKEN'];
+            $_SESSION['fec_venc']=$registro['USU_FECHA_TOKEN'];
         }
-    
-   
      }   
+     $template=file_get_contents('../vistas/template.php');
+     $template=str_replace("{{name}}",$_SESSION['usu'],$template);
+     $template=str_replace("{{action_url_1}}","http://localhost:8080/clime-home/vistas/restablecer_contraseña.php",$template);
+     $template=str_replace("{{year}}",date('Y'),$template);
       //Configuración del servidor
     $mail->SMTPDebug = 0;                       // Habilitar salida de depuración detallada
     $mail->CharSet = 'UTF-8';
@@ -68,16 +74,17 @@ try{
     // Contenido
     $mail->isHTML(true);                                  // Establecer formato de correo electrónico a HTML
     $mail->Subject = 'Recuperar Contraseña';
-    $mail->Body    = 'Recientemente solicitó restablecer su contraseña para su cuenta. Use el enlace de abajo para reiniciarla. Este restablecimiento de contraseña solo es válido durante las próximas 24 horas.<a href="http://localhost:8080/clime-home/vistas/restablecer_contraseña.php">Restablecer contraseña aqui</a>';
+    $mail->Body    = $template;
     
     //$mail->AltBody = 'Este es el cuerpo en texto plano para clientes de correo no HTML';
 
     $mail->send();
-    echo '<script>alert("El mensaje ha sido enviado correctamente.Revise su correo ");window.location= "../vistas/recuperar_correo.php"</script>';
-  
+    echo '<script>alert("SE HA ENVIADO UN CORREO ELECTRONICO PARA EL CAMBIO DE CONTRASEÑA. POR FAVOR VERIFICA LA INFORMACION ENVIADA.");window.location= "../vistas/recuperar_correo.php"</script>';
 
-   
-		//$resultado->closeCursor();
+        $num_rows->closeCursor();
+        $resultado2->closeCursor();
+        $resultado3->closeCursor();
+
 }catch(Exception $e){
     die('Error: ' . $e->GetMessage());
     echo "Codigo del error" . $e->getCode();
