@@ -17,7 +17,7 @@ try{
 		if ($contador>0) {
 			session_start();
 			$_SESSION["USU_USUARIO"]=$_POST["login"];
-			header("location:../vistas/index.php");
+			header("location:../vistas/preguntas_vista.php");
 		}else{
             echo '<script>alert("USUARIO O CONTRASEÑA INCORRECTA ");window.location= "../vistas/login_vista.php"</script>';
 		}

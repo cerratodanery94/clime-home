@@ -22,13 +22,13 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header ">
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>H</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CLIME</b>LTE</span>
+      <span class="logo-lg"><b>CLIME</b>HOME</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -85,9 +85,9 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="verlistas.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
-         
+          <li><a href="crear-admin.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="#"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
+          
 
         </ul>
       </li>
@@ -223,14 +223,6 @@
           <li><a href="administradores.php"><i class="fa fa-circle-o"></i>Agregar Administrador</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Agregar Venta</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Actualizar Ventas</a></li>
- 
-        
-        
-        
-      
-       
-        
-        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -243,24 +235,72 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        BIENVENIDO
-        
+        PANTALLA DE MANTENIMIENTO
+        <small>Llena el formulario para crear un Usuario</small>
       </h1>
+      
       
     </section>
 
     <!-- Main content -->
+    
+    <div class="row">
+
+           <div class="col-md-6">
     <section class="content">
 
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">PANTALLA PRICIPAL</h3>
+          <h3 class="box-title">CREAR UN USUARIO</h3>
 
           
         </div>
         <div class="box-body">
-          Start creating your amazing application!
+        
+        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form">
+              
+                <div class="form-group">
+                  <label for="exampleInputEmail1">USUARIO</label>
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usuario">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">NOMBRES</label>
+                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" >
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">APELLIDOS</label>
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">ROL</label>
+                  <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
+                </div>
+
+                   
+                <div class="form-group">
+                  <label for="exampleInputPassword1">FECHA CREACION</label>
+                  <input type="text" class="form-control nombres" name="fecha_creacion" id="fecha_creacion" value="<?php echo date("m/d/Y"); ?> " readonly>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">FECHA DE VENCIMIENTO</label>
+                  <input type="text" class="form-control nombres" name="fecha_vencida" id="fecha_vencida"  value="<?php echo date("m/d/Y",strtotime("+1 years")); ?> " readonly>
+                </div>
+                
+      
+                <div class="form-group">
+                  <label for="exampleInputPassword1">CORREO</label>
+                  <input type="email" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
+                </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">CREAR</button>
+              </div>
+            </form>
         </div>
         <!-- /.box-body -->
         
@@ -268,8 +308,10 @@
       </div>
       <!-- /.box -->
 
-    </section>
+    
     <!-- /.content -->
+    </div>
+    </div>
   </div>
   <!-- /.content-wrapper -->
 
