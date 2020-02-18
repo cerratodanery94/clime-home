@@ -189,6 +189,12 @@
                                     formulario.usuario.focus();
                                     return false;
                                  }
+                                 else if (validar_texto (formulario.usuario.value)==false){
+                                    document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO NOMBRES NO PUEDE CONTENER NUMEROS</div>';
+                                    formulario.usuario.focus();
+                                    formulario.usuario.value="";
+                                    return false;
+                                    }
 
                                 else{
                                     document.getElementById("alerta").innerHTML="";
