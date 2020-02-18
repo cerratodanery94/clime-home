@@ -31,18 +31,15 @@
     </div>
   <div class="register-box-body">
     <p class="login-box-msg"></p>
-
-    <form action="../modelos/registrar_modelo.php" method="POST" name="f" onsubmit="return validar_registro();">
+    <form action="../modelos/registrar_modelo.php" method="POST" name="Form_registrar">
        
-       
-
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
-        <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
+        <input type="text" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>     
       <div class="form-group has-feedback">
-        <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
+        <input type="text" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -71,11 +68,11 @@
         <input type="text" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div id ="alerta"></div>
       <div class="row">
+      <div id ="alerta"></div>
         <!-- /.col -->
         <div class="col-12 forgot">
-        <div style='float:center;margin:auto;width:90px;'><button type="submit" class="btn btn-primary btnregistrar" >REGISTRARSE</button></div>
+        <div style='float:center;margin:auto;width:90px;'><button type="button" class="btn btn-primary btnregistrar" onclick="validar_registro();">REGISTRARSE</button></div>
         </div>     
     </div>
         <!-- /.col -->

@@ -27,18 +27,17 @@
   <div class="register-box-body">
     <p class="login-box-msg">RECUPERAR CONTRASEÑA POR CORREO</p>
 
-    <form action="../modelos/recuperar_correo_modelo.php" method="POST" onsubmit="return validar_correo();">
+    <form action="../modelos/recuperar_correo_modelo.php" method="POST" name="Form_recuperar">
     <div class="form-group has-feedback">
        
         <input id="usuario2" type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="INGRESE USUARIO" name="usuario2">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      
+     
       <div class="row">
-        
-        <!-- /.col -->
+      <div id ="alerta3"></div>
         <div class="col-xs-10">
-        <div style='float:center;margin:auto;width:119Px;'><button type="submit" class="btn btn-primary btn-correo">RECUPERAR POR CORREO</button>
+        <div style='float:center;margin:auto;width:119Px;'><button type="button" class="btn btn-primary btn-correo"onclick="Validar_recuperar();">RECUPERAR POR CORREO</button>
         </>
     </div>
            <!-- /.col -->
