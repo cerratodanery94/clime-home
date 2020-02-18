@@ -80,7 +80,7 @@
              }
              //VALIDAR LONGITUD_CONTRASEÑA
              function validar_limitcontraseña(parametro){
-                 if (parametro.length <=7){
+                 if (parametro.length <=7  || parametro.length >12  ){
                      return false;
                  }
                  else{
