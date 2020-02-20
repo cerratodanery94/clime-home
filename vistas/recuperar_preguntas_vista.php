@@ -42,7 +42,7 @@
       </select>
       </div>
     <div class="form-group has-feedback">
-        <input id="respuesta2" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta2" >
+        <input id="respuesta2" autocomplete="off" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta2" >
         <span class="fa fa-reply form-control-feedback"></span>
     </div>
       

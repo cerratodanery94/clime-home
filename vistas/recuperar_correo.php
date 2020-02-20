@@ -30,7 +30,7 @@
     <form  method="POST" name="Form_recuperar">
     <div class="form-group has-feedback">
        
-        <input id="usuario2" type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="INGRESE USUARIO" name="usuario2">
+        <input id="usuario2" autocomplete="off" type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="INGRESE USUARIO" name="usuario2">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
      

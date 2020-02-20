@@ -51,7 +51,7 @@ if (!isset($_SESSION['cont_preg'])) {
       </select>
       </div>
     <div class="form-group has-feedback">
-        <input id="respuesta" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta" >
+        <input id="respuesta" autocomplete="off" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta" >
         <span class="fa fa-reply form-control-feedback"></span>
     </div>
       
