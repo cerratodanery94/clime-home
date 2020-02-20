@@ -30,7 +30,10 @@ $fecha_vencimiento= date("Y-m-d H:m:s",strtotime("+1 years"));
 $correo= $_POST["correo"];
 
 	try{
-
+		$template_correo=file_get_contents('../vistas/template_correo.php');
+		$template_correo=str_replace("{{pass}}",$pass,$template_correo);
+		$template_correo=str_replace("{{year}}",date('Y'),$template_correo);
+		
 		$mail->SMTPDebug = 0;                       // Habilitar salida de depuración detallada
 		$mail->CharSet = 'UTF-8';
 		$mail->isSMTP();                                            // Enviar usando SMTP
@@ -47,7 +50,7 @@ $correo= $_POST["correo"];
 
 		$mail->isHTML(true);                                  // Establecer formato de correo electrónico a HTML
 		$mail->Subject = 'Recuperar Contraseña';
-		$mail->Body    = 'hola tu contraseña es' . $pass;
+		$mail->Body    = $template_correo;
 
 		$mail->send();
       
