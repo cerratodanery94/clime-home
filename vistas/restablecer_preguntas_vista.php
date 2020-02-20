@@ -1,11 +1,3 @@
-<?php
-session_start();
-//error_reporting(0);
-if (!isset($_SESSION['token'])||!isset($_SESSION['id_usu'])||!isset($_SESSION['fec_venc'])) {
-  header('location:../vistas/login_vista.php');
-   die();
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,15 +25,15 @@ if (!isset($_SESSION['token'])||!isset($_SESSION['id_usu'])||!isset($_SESSION['f
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <b>Restablecer</b>Contraseña 
+    <b>RESTABLECER CONTRASEÑA POR PREGUNTAS</b>
   </div>
   <div class="register-box-body">
     <p class="login-box-msg">INGRESE LOS SIGUIENTES DATOS</p>
 
-    <form action="../modelos/restablecer_modelo.php" method="POST" name="Form_reestablecer">
+    <form action="../modelos/restablecer_preguntas_modelo.php" method="POST" name="Form_reestablecer_preg">
     <div class="form-group has-feedback">
        <div class="input-group">
-        <input id="nueva_contra" type="password" class="form-control nombres" placeholder="NUEVA CONTRASEÑA" name="nueva_contra">
+        <input id="nueva_contra" type="password" class="form-control nombres" placeholder="NUEVA CONTRASEÑA" name="nueva_contrap">
         <div class="input-group-append">
         <div class="input-group">
         <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye-slash icon3"></span></button>
@@ -52,10 +44,10 @@ if (!isset($_SESSION['token'])||!isset($_SESSION['id_usu'])||!isset($_SESSION['f
      
       <div class="form-group has-feedback">
        <div class="input-group">
-        <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra2">
+        <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contrap">
         <div class="input-group-append">
         <div class="input-group">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon4"></span></button>
+        <button id="show_password" class="btn btn-primary" type="submit" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon4"></span></button>
   
         </div>
         </div>
@@ -64,7 +56,7 @@ if (!isset($_SESSION['token'])||!isset($_SESSION['id_usu'])||!isset($_SESSION['f
       <div id="alerta4"></div>
       <div class="row">
         <div class="col-xs-10">
-        <div style='float:center;margin:auto;width:77px;'><button type="button" class="btn btn-primary btn-recuperar" onclick="Validar_reestablecer();">REESTABLECER CONTRASEÑA</button>
+        <div style='float:center;margin:auto;width:77px;'><button type="submit" class="btn btn-primary btn-recuperarp" onclick="Validar_reestablecer();">REESTABLECER CONTRASEÑA</button>
     </div>
            <!-- /.col -->
       </div>

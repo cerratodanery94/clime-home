@@ -1,9 +1,15 @@
+<?php
+/*session_start();
+if (!isset($_SESSION['cont_preg'])) {
+  header('location:../vistas/login_vista.php');
+}*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Recuperar contraseña</title>
+  <title>Preguntas de seguridad</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -20,14 +26,17 @@
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="hold-transition register-page">
+  <?php
+  $conta=0;
+  ?>
 <div class="register-box">
   <div class="register-logo">
-    <b>Preguntas de </b>Seguridad
+    <b>Preguntas de Seguridad</b>
   </div>
   <div class="register-box-body">
     <p style="text-align: justify">Seleccione tres preguntas de seguridad. Estas preguntas nos ayudaran a verificar su identidad por si olvida su contraseña.</p><br>
 
-    <form action="" method="POST" >
+    <form action="../modelos/preguntas_modelo.php" method="POST" >
     <div class="form-group has-feedback">
     <select class="form-control" name="id_pre">
         <option value="0">SELECCIONE UNA PREGUNTA:</option>
@@ -42,14 +51,14 @@
       </select>
       </div>
     <div class="form-group has-feedback">
-        <input id="respuesta" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta">
+        <input id="respuesta" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta" >
         <span class="fa fa-reply form-control-feedback"></span>
     </div>
       
       <div class="row">
         
         <!-- /.col -->
-        <div class="col text-center"r>
+        <div class="col text-center">
         <div><button type="submit" class="btn btn-primary">SIGUIENTE</button>
         
     </div>

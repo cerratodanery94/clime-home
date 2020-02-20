@@ -33,6 +33,6 @@ try {
            $resultado2->closeCursor();
         }catch (Exception $e) {
     echo 'Error: ' . $e->getCode();
-    
+    echo "Codigo del error" . $e->getCode();
 }
 ?>

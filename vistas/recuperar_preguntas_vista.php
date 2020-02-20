@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Recuperar contraseña</title>
+  <title>Recuperación por preguntas</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -22,28 +22,38 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <b>Recuperar Contraseña</b>
+    <b>Recuperación por preguntas</b>
   </div>
   <div class="register-box-body">
-    <p class="login-box-msg">RECUPERAR CONTRASEÑA POR CORREO</p>
+    <p style="text-align: justify">Ingrese una pregunta y una respuesta de las que recuerde haber registrado para restablecer contraseña</p><br>
 
-    <form  method="POST" name="Form_recuperar">
+    <form action="../modelos/recuperar_preguntas_modelo2.php" method="POST" >
     <div class="form-group has-feedback">
+    <select class="form-control" name="id_pre2">
+        <option value="0">SELECCIONE UNA PREGUNTA:</option>
+        <?php
+        require '../modelos/conectar.php';
+          $resultado = $conexion -> query ("SELECT * FROM TBL_PREGUNTAS");
+          while ($registro=$resultado->fetch(PDO::FETCH_ASSOC)) {
+            echo '<option value="'.$registro["PRE_CODIGO"].'">'.$registro["PRE_NOMBRE"].'</option>';
+          }
+        ?>
        
-        <input id="usuario2" type="text" class="form-control nombres" style="text-transform:uppercase" placeholder="INGRESE USUARIO" name="usuario2">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </select>
       </div>
-     
+    <div class="form-group has-feedback">
+        <input id="respuesta2" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta2" >
+        <span class="fa fa-reply form-control-feedback"></span>
+    </div>
+      
       <div class="row">
-      <div id ="alerta3"></div>
+        
+        <!-- /.col -->
         <div class="col text-center">
-        <div><button type="button" name="correo" class="btn btn-primary btn-correo"onclick="Validar_recuperar(); document.Form_recuperar.action = '../modelos/recuperar_correo_modelo.php'; document.Form_recuperar.submit()">RECUPERAR POR CORREO</button>
-        </div>
-      </div>
-      <br>
-      <div class="col text-center">
-        <div><button type="button" name="preguntas" class="btn btn-primary btn-preguntas "onclick="Validar_recuperar();document.Form_recuperar.action = '../modelos/recuperar_preguntas_modelo.php'; document.Form_recuperar.submit()">RECUPERAR POR PREGUNTAS</button>
-        </div>
+        <div><button type="submit" class="btn btn-primary">VERIFICAR</button>
+        
+    </div>
+           <!-- /.col -->
       </div>
     </form>
   </div>
