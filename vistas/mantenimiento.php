@@ -258,11 +258,11 @@
         </div>
         <div class="box-body">
         
-        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form">
+        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form" name="Form_registrar">
               
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usuario">
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usum">
                 </div>
 
                 <div class="form-group">
@@ -297,8 +297,10 @@
                   <input type="email" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
                 </div>
 
+                <div id="alerta"></div>
+
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">CREAR</button>
+                <button type="button" class="btn btn-primary" onclick="validar_matenimiento();">CREAR</button>
               </div>
             </form>
         </div>
@@ -330,7 +332,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+<script src="../vistas/js/validaciones.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
