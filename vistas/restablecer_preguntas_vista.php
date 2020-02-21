@@ -41,7 +41,7 @@ if (!isset($_SESSION['id_u'])) {
     <form action="../modelos/restablecer_preguntas_modelo.php" method="POST" name="Form_reestablecer_preg">
     <div class="form-group has-feedback">
        <div class="input-group">
-        <input id="nueva_contra" type="password" class="form-control nombres" placeholder="NUEVA CONTRASEÑA" name="nueva_contrap">
+        <input id="nueva_contra" autocomplete="off" type="password" class="form-control nombres" placeholder="NUEVA CONTRASEÑA" name="nueva_contrap">
         <div class="input-group-append">
         <div class="input-group">
         <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword_recuperarcontra()"><span class="fa fa-eye-slash icon3"></span></button>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['id_u'])) {
      
       <div class="form-group has-feedback">
        <div class="input-group">
-        <input id="confirmar_contra2" type="password" class="form-control nombres" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contrap">
+        <input id="confirmar_contra2" autocomplete="off" type="password" class="form-control nombres" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contrap">
         <div class="input-group-append">
         <div class="input-group">
         <button id="show_password" class="btn btn-primary" type="submit" onclick="mostrarPassword_recuperarcontra2()"><span class="fa fa-eye-slash icon4"></span></button>

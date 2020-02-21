@@ -262,39 +262,39 @@
               
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usum">
+                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usum">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">NOMBRES</label>
-                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" >
+                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">APELLIDOS</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido">
+                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
+                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
                 </div>
 
                    
                 <div class="form-group">
                   <label for="exampleInputPassword1">FECHA CREACION</label>
-                  <input type="text" class="form-control nombres" name="fecha_creacion" id="fecha_creacion" value="<?php echo date("m/d/Y"); ?> " readonly>
+                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_creacion" id="fecha_creacion" value="<?php echo date("m/d/Y"); ?> " readonly>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">FECHA DE VENCIMIENTO</label>
-                  <input type="text" class="form-control nombres" name="fecha_vencida" id="fecha_vencida"  value="<?php echo date("m/d/Y",strtotime("+1 years")); ?> " readonly>
+                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_vencida" id="fecha_vencida"  value="<?php echo date("m/d/Y",strtotime("+1 years")); ?> " readonly>
                 </div>
                 
       
                 <div class="form-group">
                   <label for="exampleInputPassword1">CORREO</label>
-                  <input type="email" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
+                  <input type="email" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
                 </div>
 
                 <div id="alerta"></div>

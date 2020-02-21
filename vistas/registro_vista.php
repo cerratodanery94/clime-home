@@ -35,20 +35,20 @@
        
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
-        <input type="text" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
+        <input type="text" autocomplete="off" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>     
       <div class="form-group has-feedback">
-        <input type="text" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
+        <input type="text" autocomplete="off" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
+        <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
         <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <div class="input-group">
-        <input id="contra" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
+        <input id="contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
         <div class="input-group-append">
         <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
         </div>
@@ -57,15 +57,15 @@
       <div class="form-group has-feedback">
        <div class="input-group">
        <div class="input-group">
-        <input id="confirmar_contra" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
+        <input id="confirmar_contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
         <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon1"></span></button>
+        <button id="show_password" autocomplete="off" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon1"></span></button>
         </div>
         </div>
       </div>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
+        <input type="text" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="row">
