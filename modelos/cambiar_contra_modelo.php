@@ -1,6 +1,6 @@
 <?php
 session_start();
-$id_usu=$_SESSION['id_usu'];
+$id_usu=$_SESSION['id_us'];
 $nueva_contra= $_POST["nueva_contra"];
 $pass_nueva_cifrado=password_hash($nueva_contra,PASSWORD_DEFAULT,array("cost"=>12));
 $estado='ACTIVO';

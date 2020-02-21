@@ -1,8 +1,8 @@
 <?php
-/*session_start();
-if (!isset($_SESSION['cont_preg'])) {
+session_start();
+if (!isset($_SESSION["id_us"])) {
   header('location:../vistas/login_vista.php');
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,9 +26,6 @@ if (!isset($_SESSION['cont_preg'])) {
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="hold-transition register-page">
-  <?php
-  $conta=0;
-  ?>
 <div class="register-box">
   <div class="register-logo">
     <b>Preguntas de Seguridad</b>

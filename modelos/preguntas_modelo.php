@@ -17,7 +17,7 @@ try {
            $sql2='INSERT INTO TBL_PREGUNTAS_USUARIO (PRE_CODIGO,USU_CODIGO,PREUSU_RESPUESTA) 
             VALUES (:id_pre,:id_usu,:respuesta)';
             $resultado2=$conexion->prepare($sql2);	
-            $resultado2->execute(array("id_pre"=>$id_pre,":id_usu"=>$_SESSION["id_usu"],":respuesta"=>$respuesta));
+            $resultado2->execute(array("id_pre"=>$id_pre,":id_usu"=>$_SESSION["id_us"],":respuesta"=>$respuesta));
 
             if ($resultado2) {	
              if ($_SESSION['cont_preg']<$_SESSION['parametro']){

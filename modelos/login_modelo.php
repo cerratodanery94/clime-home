@@ -10,14 +10,14 @@ try{
 	session_start();
 		while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){			
 				if (password_verify($password,$registro['USU_PASSWORD'])) {
-					$_SESSION["id_usu"]=$registro['USU_CODIGO'];
-					$_SESSION["estado"]=$registro['USU_ESTADO'];
+					$_SESSION["id_us"]=$registro['USU_CODIGO'];
+					$_SESSION["est"]=$registro['USU_ESTADO'];
 					$contador++;
 				}	
 		}
 		if ($contador>0){
-			if ($_SESSION["estado"]) {
-                    switch ($_SESSION["estado"]) {
+			if ($_SESSION["est"]) {
+                    switch ($_SESSION["est"]) {
 					case 'NUEVO':   
 					header("location:../vistas/preguntas_vista.php");  
 					break;

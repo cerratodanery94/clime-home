@@ -1,3 +1,11 @@
+<?php
+session_start();
+//error_reporting(0);
+if (!isset($_SESSION['id_u'])) {
+  header('location:../vistas/login_vista.php');
+   die();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

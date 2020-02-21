@@ -1,9 +1,8 @@
 <?php
-/*session_start();
-if (!isset($id_usu)) {
+session_start();
+if (!isset($_SESSION['id_us'])) {
   header('location:../vistas/login_vista.php');
-   die();
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html>
