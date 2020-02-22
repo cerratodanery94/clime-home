@@ -71,7 +71,7 @@ $correo= $_POST["correo"];
 	   $resultado=$conexion->prepare($sql);	
        $resultado->execute(array(":rol"=>$idrol,":usuario"=>$usuario,":nombres"=>$nombres,":apellidos"=>$apellidos,":contra"=>$pass_cifrado,":estado"=>$estado,":fecha_creacion" =>$fecha_creacion, ":fecha_vencimiento"=>$fecha_vencimiento,":correo"=>$correo));
 	   if ($resultado) {
-		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");window.location= "../vistas/mantenimiento.php"</script>';
+		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");window.location= "../vistas/insertar_mant_vista.php"</script>';
 			
 	   } else {
 		echo '<script>alert("Error al registrarse");window.location= "../vistas/insertar_mant_vista.php"</script>';	

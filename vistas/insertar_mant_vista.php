@@ -258,7 +258,7 @@
         </div>
         <div class="box-body">
         
-        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form" name="Form_registrar">
+        <form action="../modelos/insertar_mant_modelo.php" method="POST" role="form" name="Form_registrar">
               
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>

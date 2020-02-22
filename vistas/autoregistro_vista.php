@@ -31,7 +31,7 @@
     </div>
   <div class="register-box-body">
     <p class="login-box-msg"></p>
-    <form action="../modelos/registrar_modelo.php" method="POST" name="Form_registrar">
+    <form action="../modelos/autoregistro_modelo.php" method="POST" name="Form_registrar">
        
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
