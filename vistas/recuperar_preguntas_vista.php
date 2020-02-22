@@ -35,9 +35,9 @@ if (!isset($_SESSION['id_u'])) {
   <div class="register-box-body">
     <p style="text-align: justify">Ingrese una pregunta y una respuesta de las que recuerde haber registrado para restablecer contraseña</p><br>
 
-    <form action="../modelos/recuperar_preguntas_modelo2.php" method="POST" >
+    <form action="../modelos/recuperar_preguntas_modelo2.php" method="POST" name="form_recu" >
     <div class="form-group has-feedback">
-    <select class="form-control" name="id_pre2">
+    <select class="form-control" name="id_pre2" id="combox2">
         <option value="0">SELECCIONE UNA PREGUNTA:</option>
         <?php
         require '../modelos/conectar.php';
@@ -53,12 +53,12 @@ if (!isset($_SESSION['id_u'])) {
         <input id="respuesta2" autocomplete="off" type="text" class="form-control" style="text-transform:uppercase" placeholder="RESPUESTA" name="respuesta2" >
         <span class="fa fa-reply form-control-feedback"></span>
     </div>
-      
+      <div id="alerta8"></div>
       <div class="row">
         
         <!-- /.col -->
         <div class="col text-center">
-        <div><button type="submit" class="btn btn-primary">VERIFICAR</button>
+        <div><button type="button" class="btn btn-primary" onclick="validar_recu();">VERIFICAR</button>
         
     </div>
            <!-- /.col -->
