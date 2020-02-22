@@ -29,7 +29,7 @@ $correo= $_POST["correo"];
 	   if ($resultado) {
 		echo '<script>alert("SE HA REGISTRADO CORRECTAMENTE");window.location.href="../vistas/login_vista.php"</script>';	
 	   } else {
-		echo '<script>alert("ERROR AL REGISTRARSE");window.location= "../vistas/registro_vista.php"</script>';	
+		echo '<script>alert("ERROR AL REGISTRARSE");window.location= "../vistas/autoregistro_vista.php"</script>';	
 		}
 		$num_rows->closeCursor();
 		$resultado->closeCursor();

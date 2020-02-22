@@ -61,7 +61,7 @@ $correo= $_POST["correo"];
         $num_rows = $consulta->fetchColumn();
         
        if ($num_rows>0){ 
-		   echo '<script>alert("Usuario ya existe");window.location= "../vistas/registro_vista.php"</script>';
+		   echo '<script>alert("Usuario ya existe");window.location= "../vistas/insertar_mant_vista.php"</script>';
 		    
        }else{	
 		   
@@ -74,7 +74,7 @@ $correo= $_POST["correo"];
 		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");window.location= "../vistas/mantenimiento.php"</script>';
 			
 	   } else {
-		echo '<script>alert("Error al registrarse");window.location= "../vistas/mantenimiento.php"</script>';	
+		echo '<script>alert("Error al registrarse");window.location= "../vistas/insertar_mant_vista.php"</script>';	
 		}
 	
 		
