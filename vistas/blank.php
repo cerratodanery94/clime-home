@@ -85,8 +85,8 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="verlistas.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
+          <li><a href="insertar_mant_vista.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="mostrar_vista.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
          
 
         </ul>

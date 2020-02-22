@@ -63,7 +63,7 @@
         </div>
     </div>
     <br></br>
-    <div style='float:center;margin:auto;width:180px;'><a>¿NO TIENES USUARIO?  </a><a href="../vistas/registro_vista.php">REGISTRATE</a> </div>
+    <div style='float:center;margin:auto;width:180px;'><a>¿NO TIENES USUARIO?  </a><a href="../vistas/autoregistro_vista.php">REGISTRATE</a> </div>
 </div>
         <!-- /.col -->
       </div>

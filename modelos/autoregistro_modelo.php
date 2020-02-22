@@ -17,7 +17,7 @@ $correo= $_POST["correo"];
         $num_rows = $consulta->fetchColumn();
         
        if ($num_rows>0){ 
-		   echo '<script>alert("USUARIO YA EXISTE PORFAVOR INGRESE OTRO NOMBRE DE USUARIO");window.location= "../vistas/registro_vista.php"</script>';
+		   echo '<script>alert("USUARIO YA EXISTE PORFAVOR INGRESE OTRO NOMBRE DE USUARIO");window.location= "../vistas/autoregistro_vista.php"</script>';
 		    
        }else{
 		$sql="INSERT INTO TBL_USUARIO (ROL_CODIGO,USU_USUARIO,USU_NOMBRES,USU_APELLIDOS,USU_PASSWORD,USU_ESTADO,USU_PREGUNTAS_CONTESTADAS,USU_PRIMER_INGRESO,USU_FECHA_CREACION,USU_FECHA_VENCIMIENTO,USU_TOKEN,USU_FECHA_TOKEN,USU_CORREO) 
