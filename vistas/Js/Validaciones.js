@@ -52,7 +52,7 @@
 
             //VALIDACION DE SOLO LETRAS
                 function validar_texto(parametro) {
-                    var Texto=/^[A-Za-z\s]+$/;
+                    var Texto= /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
                     if(parametro.search (Texto)){
                         return false;
                     }
