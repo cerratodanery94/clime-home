@@ -576,6 +576,132 @@
                       
                         
                     
+//VALIDAR FORMULARIO CAMBIAR CONTRASEÑA
+             function Validar_rescambiar() {
+                            
+             var formulario_cam= document.Form_cambiar;
+             if (formulario_cam.nueva_contra.value=="") {
+                    
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO NUEVA CONTRASEÑA SE ENCUENTRA VACIO</div>';
+            formulario_cam.nueva_contra.focus();
+            return false; 
+            }
+            else if (validar_limitcontraseña (formulario_cam.nueva_contra.value)==false){  
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO NUEVA CONTRASEÑA DEBE DE CONTENER AL MENOS(8) CARACTERES</div>';
+            formulario_cam.nueva_contra.focus();
+            formulario_cam.nueva_contra.value="";
+            return false;
+            }
+            else if (Validar_espacio (formulario_cam.nueva_contra.value)==false){  
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO  NUEVA CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+            formulario_cam.nueva_contra.focus();
+            formulario_cam.nueva_contra.value="";
+            return false;
+            }
+            else if (Validar_espacio2(formulario_cam.nueva_contra.value)==false){  
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO NUEVA CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+            formulario_cam.nueva_contra.focus();
+            formulario_cam.nueva_contra.value="";
+            return false;
+            }
+            
+            //VALIDAR CONFIRMAR CONTRASEÑA
+            if (formulario_cam.confirmar_contra2.value=="") {
+            //NUEVA CONTRASEÑA
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO CONFIRMAR CONTRASEÑA SE ENCUENTRA VACIO</div>';
+            formulario_cam.confirmar_contra2.focus();
+            return false; 
+            }
+            else if (Validar_espacio (formulario_cam.confirmar_contra2.value)==false){  
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO  CONFIRMAR CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+            formulario_cam.confirmar_contra2.focus();
+            formulario_cam.confirmar_contra2.value="";
+            return false;
+            }
+            else if (Validar_espacio2(formulario_cam.confirmar_contra2.value)==false){  
+            document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONFIRMAR CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+            formulario_cam.confirmar_contra2.focus();
+            formulario_cam.confirmar_contra2.value="";
+            return false;
+            }
+             //CONTRASEÑAS COINCIDAN
+             if(formulario_cam.nueva_contra.value != formulario_cam.confirmar_contra2.value){
+                document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CONTRASEÑAS NO COINCIDEN </div>';
+                formulario_cam.nueva_contra.value="";
+                formulario_cam.confirmar_contra2.value="";
+                formulario_cam.nueva_contra.focus();
+                
+                return false;
+                                    }
+            else{
+            document.getElementById("alerta7").innerHTML="";
+            }
 
-                        
-               
+            formulario_cam.submit();
+}
+
+
+//VALIDAR FORMULARIO RESTABLECER PREGUNTAS VISTA
+
+function Validar_resres() {
+                            
+    var formulario_cam= document.Form_reestablecer_preg;
+    if (formulario_cam.nueva_contra.value=="") {
+           
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO NUEVA CONTRASEÑA SE ENCUENTRA VACIO</div>';
+   formulario_cam.nueva_contra.focus();
+   return false; 
+   }
+   else if (validar_limitcontraseña (formulario_cam.nueva_contra.value)==false){  
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO NUEVA CONTRASEÑA DEBE DE CONTENER AL MENOS(8) CARACTERES</div>';
+   formulario_cam.nueva_contra.focus();
+   formulario_cam.nueva_contra.value="";
+   return false;
+   }
+   else if (Validar_espacio (formulario_cam.nueva_contra.value)==false){  
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO  NUEVA CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+   formulario_cam.nueva_contra.focus();
+   formulario_cam.nueva_contra.value="";
+   return false;
+   }
+   else if (Validar_espacio2(formulario_cam.nueva_contra.value)==false){  
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO NUEVA CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+   formulario_cam.nueva_contra.focus();
+   formulario_cam.nueva_contra.value="";
+   return false;
+   }
+   
+   //VALIDAR CONFIRMAR CONTRASEÑA
+   if (formulario_cam.confirmar_contra2.value=="") {
+   //NUEVA CONTRASEÑA
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO CONFIRMAR CONTRASEÑA SE ENCUENTRA VACIO</div>';
+   formulario_cam.confirmar_contra2.focus();
+   return false; 
+   }
+   else if (Validar_espacio (formulario_cam.confirmar_contra2.value)==false){  
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO  CONFIRMAR CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+   formulario_cam.confirmar_contra2.focus();
+   formulario_cam.confirmar_contra2.value="";
+   return false;
+   }
+   else if (Validar_espacio2(formulario_cam.confirmar_contra2.value)==false){  
+   document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONFIRMAR CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
+   formulario_cam.confirmar_contra2.focus();
+   formulario_cam.confirmar_contra2.value="";
+   return false;
+   }
+    //CONTRASEÑAS COINCIDAN
+    if(formulario_cam.nueva_contra.value != formulario_cam.confirmar_contra2.value){
+       document.getElementById("alerta7").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CONTRASEÑAS NO COINCIDEN </div>';
+       formulario_cam.nueva_contra.value="";
+       formulario_cam.confirmar_contra2.value="";
+       formulario_cam.nueva_contra.focus();
+       
+       return false;
+                           }
+   else{
+   document.getElementById("alerta7").innerHTML="";
+   }
+
+   formulario_cam.submit();
+}

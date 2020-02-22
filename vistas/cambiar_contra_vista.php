@@ -36,7 +36,7 @@ if (!isset($_SESSION['id_us'])) {
   <div class="register-box-body">
    
 
-    <form action="../modelos/cambiar_contra_modelo.php" method="POST" name="Form_cambio">
+    <form action="../modelos/cambiar_contra_modelo.php" method="POST" name="Form_cambiar">
     <div class="form-group has-feedback">
        <div class="input-group">
         <input id="nueva_contra" autocomplete="off" type="password" class="form-control" placeholder="NUEVA CONTRASEÑA" name="nueva_contra">
@@ -59,10 +59,12 @@ if (!isset($_SESSION['id_us'])) {
         </div>
       </div>
       </div> 
-      <div id="alerta4"></div>
+
+      <div id="alerta7"></div>
+      
       <div class="row">
         <div class="col-xs-10">
-        <div style='float:center;margin:auto;width:77px;'><button type="submit" class="btn btn-primary btn-cambio" onclick="Validar_reestablecer();">REESTABLECER CONTRASEÑA</button>
+        <div style='float:center;margin:auto;width:77px;'><button type="button" class="btn btn-primary btn-cambio" onclick="Validar_rescambiar();">REESTABLECER CONTRASEÑA</button>
     </div>
            <!-- /.col -->
       </div>

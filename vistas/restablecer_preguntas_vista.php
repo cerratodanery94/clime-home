@@ -61,10 +61,10 @@ if (!isset($_SESSION['id_u'])) {
         </div>
       </div>
       </div> 
-      <div id="alerta4"></div>
+      <div id="alerta7"></div>
       <div class="row">
         <div class="col-xs-10">
-        <div style='float:center;margin:auto;width:77px;'><button type="submit" class="btn btn-primary btn-recuperarp" onclick="Validar_reestablecer();">REESTABLECER CONTRASEÑA</button>
+        <div style='float:center;margin:auto;width:77px;'><button type="button" class="btn btn-primary btn-recuperarp" onclick="Validar_resres();">REESTABLECER CONTRASEÑA</button>
     </div>
            <!-- /.col -->
       </div>
