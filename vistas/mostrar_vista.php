@@ -1,9 +1,12 @@
+<?php
+	require_once "../modelos/conectar.php";            
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mantenimiento |ClimeHome</title>
+  <title>LISTA DE | USUARIOS</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -12,17 +15,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../vistas/plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
- 
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../vistas/dist/css/skins/_all-skins.min.css">
 
 </head>
+
+
 <body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
+
 <div class="wrapper">
 
-  <header class="main-header ">
+  <header class="main-header">
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -43,7 +51,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="cerrar_sesion_modelo.php" class="dropdown-toggle" data-toggle="dropdown">  
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
             <span class="hidden-xs">SALIR</span>
             </a>
             <ul class="dropdown-menu">
@@ -85,9 +93,9 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="crear-admin.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
-          
+          <li><a href="mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="verlistas.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
+         
 
         </ul>
       </li>
@@ -223,6 +231,14 @@
           <li><a href="administradores.php"><i class="fa fa-circle-o"></i>Agregar Administrador</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Agregar Venta</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Actualizar Ventas</a></li>
+ 
+        
+        
+        
+      
+       
+        
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -235,85 +251,74 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PANTALLA DE MANTENIMIENTO
-        <small>Llena el formulario para crear un Usuario</small>
+        LISTA DE USUARIOS
+        
       </h1>
-      
       
     </section>
 
     <!-- Main content -->
-    
-    <div class="row">
-
-           <div class="col-md-6">
     <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">ADMINISTRA LOS USUARIOS EN ESTA SECCION </h3>
+            </div>
+            <!--llamar funciones-->
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">CREAR UN USUARIO</h3>
+            <div class="box-body">
 
-          
-        </div>
-        <div class="box-body">
-        
-        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form" name="Form_registrar">
-              
-                <div class="form-group">
-                  <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usum">
-                </div>
 
-                <div class="form-group">
-                  <label for="exampleInputPassword1">NOMBRES</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" >
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">APELLIDOS</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
-                </div>
-
-                   
-                <div class="form-group">
-                  <label for="exampleInputPassword1">FECHA CREACION</label>
-                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_creacion" id="fecha_creacion" value="<?php echo date("m/d/Y"); ?> " readonly>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">FECHA DE VENCIMIENTO</label>
-                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_vencida" id="fecha_vencida"  value="<?php echo date("m/d/Y",strtotime("+1 years")); ?> " readonly>
-                </div>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th >ID USUARIO</th>
+                  <th>ROL</th>
+                  <th>USUARIO</th>
+                  <th>NOMBRES</th>
+                  <th>APELLIDOS</th>
+                  <th>ESTADO</th>
+                  <th>CORREO</th>
+                  <th>ACCIONES</th>
                 
-      
-                <div class="form-group">
-                  <label for="exampleInputPassword1">CORREO</label>
-                  <input type="email" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
-                </div>
 
-                <div id="alerta"></div>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                require_once "../modelos/mostrar_modelo.php";
+                    require_once "../modelos/conectar.php";
+                    if(isset($_GET['USU_CODIGO'])){
+                     require_once "../modelos/eliminar_mant_modelo.php";
+                   }
+                    
+	?>
+		              	
 
-              <div class="box-footer">
-                <button type="button" class="btn btn-primary" onclick="validar_matenimiento();">CREAR</button>
-              </div>
-            </form>
+             
+
+                </tbody>
+                <tfoot>
+                <tr>
+                <th>ROL</th>
+                  <th>USUARIO</th>
+                  <th>NOMBRES</th>
+                  <th>APELLIDOS</th>
+                  <th>ESTADO</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-        <!-- /.box-body -->
-        
-        <!-- /.box-footer-->
+        <!-- /.col -->
       </div>
-      <!-- /.box -->
-
-    
+      <!-- /.row -->
+    </section>
     <!-- /.content -->
-    </div>
-    </div>
   </div>
   <!-- /.content-wrapper -->
 
@@ -332,11 +337,14 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-<script src="../vistas/js/validaciones.js"></script>
+
 <!-- jQuery 2.2.3 -->
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../vistas/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../vistas/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="../vistas/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -345,5 +353,20 @@
 <script src="../vistas/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../vistas/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "pagelength":3,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 </body>
 </html>

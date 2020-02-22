@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mantenimiento |ClimeHome</title>
+  <title>AdminLTE 2 | Blank Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -43,7 +43,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="cerrar_sesion_modelo.php" class="dropdown-toggle" data-toggle="dropdown">  
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
             <span class="hidden-xs">SALIR</span>
             </a>
             <ul class="dropdown-menu">
@@ -86,7 +86,7 @@
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
           <li><a href="crear-admin.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
+          <li><a href="#"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
           
 
         </ul>
@@ -257,52 +257,12 @@
           
         </div>
         <div class="box-body">
+
         
-        <form action="../modelos/crear_mantenimiento.php" method="POST" role="form" name="Form_registrar">
-              
-                <div class="form-group">
-                  <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usum">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">NOMBRES</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" >
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">APELLIDOS</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
-                </div>
-
-                   
-                <div class="form-group">
-                  <label for="exampleInputPassword1">FECHA CREACION</label>
-                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_creacion" id="fecha_creacion" value="<?php echo date("m/d/Y"); ?> " readonly>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">FECHA DE VENCIMIENTO</label>
-                  <input type="text" autocomplete="off" class="form-control nombres" name="fecha_vencida" id="fecha_vencida"  value="<?php echo date("m/d/Y",strtotime("+1 years")); ?> " readonly>
-                </div>
-                
-      
-                <div class="form-group">
-                  <label for="exampleInputPassword1">CORREO</label>
-                  <input type="email" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
-                </div>
-
-                <div id="alerta"></div>
-
-              <div class="box-footer">
-                <button type="button" class="btn btn-primary" onclick="validar_matenimiento();">CREAR</button>
-              </div>
-            </form>
+        
+        <?php
+			            	require_once "../modelos/actualizar_mant_modelo.php";
+		              	?>
         </div>
         <!-- /.box-body -->
         
@@ -332,7 +292,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-<script src="../vistas/js/validaciones.js"></script>
+
 <!-- jQuery 2.2.3 -->
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
