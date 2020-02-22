@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Blank Page</title>
+  <title>Editar Usuarios</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -85,8 +85,8 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="crear-admin.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="#"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
+          <li><a href="../vistas/mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
           
 
         </ul>
@@ -235,8 +235,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PANTALLA DE MANTENIMIENTO
-        <small>Llena el formulario para crear un Usuario</small>
+        MANTENIMIENTO ACTUALIZAR 
       </h1>
       
       
@@ -248,35 +247,25 @@
 
            <div class="col-md-6">
     <section class="content">
-
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">CREAR UN USUARIO</h3>
-
-          
+          <h3 class="box-title">EDITAR USUARIO</h3>
         </div>
         <div class="box-body">
-
-        
-        
         <?php
-			            	require_once "../modelos/actualizar_mant_modelo.php";
-		              	?>
+			    require_once "../modelos/actualizar_mant_modelo.php";
+		    ?>
         </div>
-        <!-- /.box-body -->
-        
+        <!-- /.box-body --> 
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->
-
-    
     <!-- /.content -->
     </div>
     </div>
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.8

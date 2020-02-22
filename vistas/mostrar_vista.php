@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LISTA DE | USUARIOS</title>
+  <title>Mostrar Usuarios</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -93,8 +93,8 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="verlistas.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
+          <li><a href="../vistas/mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
          
 
         </ul>
@@ -266,10 +266,7 @@
               <h3 class="box-title">ADMINISTRA LOS USUARIOS EN ESTA SECCION </h3>
             </div>
             <!--llamar funciones-->
-
             <div class="box-body">
-
-
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -281,8 +278,6 @@
                   <th>ESTADO</th>
                   <th>CORREO</th>
                   <th>ACCIONES</th>
-                
-
                 </tr>
                 </thead>
                 <tbody>
@@ -292,20 +287,18 @@
                     if(isset($_GET['USU_CODIGO'])){
                      require_once "../modelos/eliminar_mant_modelo.php";
                    }
-                    
-	?>
-		              	
-
-             
-
+                ?>
                 </tbody>
                 <tfoot>
                 <tr>
-                <th>ROL</th>
+                <th>ID USUARIO</th>
+                  <th>ROL</th>
                   <th>USUARIO</th>
                   <th>NOMBRES</th>
                   <th>APELLIDOS</th>
                   <th>ESTADO</th>
+                  <th>CORREO</th>
+                  <th>ACCIONES</th>
                 </tr>
                 </tfoot>
               </table>

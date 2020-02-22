@@ -5,7 +5,6 @@ require '../modelos/conectar.php';
 	if($consulta->rowCount()>=1){
 		while($fila=$consulta->fetch()){
 			echo "<tr>
-			        
 					<td>".$fila['USU_CODIGO']."</td>
 					<td>".$fila['ROL_CODIGO']."</td>
 					<td>".$fila['USU_USUARIO']."</td>
@@ -13,24 +12,12 @@ require '../modelos/conectar.php';
 					<td>".$fila['USU_APELLIDOS']."</td>
 					<td>".$fila['USU_ESTADO']."</td>
 					<td>".$fila['USU_CORREO']."</td>
-
-				
-
-
-					<td><a href='actualizar_mant_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-orange btn-flat margin'>
-					<i class='fa fa-pencil'></i>
-					
-					</a>
-					<a href='mostrar_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-maroon bnt-flat margin borrar_registro'>
-					<i class='fa fa-trash'></i>
-					</a> 
-					
+					<td>
+					<a href='actualizar_mant_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-orange btn-flat margin'>
+					<i class='fa fa-pencil'></i> Editar</a>
+					<a href='mostrar_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-maroon bnt-flat margin'>
+					<i class='fa fa-trash'></i> Eliminar</a> 
 					</td>
-					
-                   
-				  
-			
-          
 				</tr>";
 		}
 	}else{

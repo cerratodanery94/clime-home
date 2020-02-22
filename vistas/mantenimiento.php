@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mantenimiento |ClimeHome</title>
+  <title>Registrar Usuarios</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -85,7 +85,7 @@
         </a>
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
-          <li><a href="crear-admin.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
+          <li><a href="../vistas/mantenimiento.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
           <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
           
 
@@ -235,7 +235,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        PANTALLA DE MANTENIMIENTO
+      MANTENIMIENTO REGISTRAR
         <small>Llena el formulario para crear un Usuario</small>
       </h1>
       
@@ -300,7 +300,9 @@
                 <div id="alerta"></div>
 
               <div class="box-footer">
+              <div class="col text-center">
                 <button type="button" class="btn btn-primary" onclick="validar_matenimiento();">CREAR</button>
+                </div>
               </div>
             </form>
         </div>

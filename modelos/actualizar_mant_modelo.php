@@ -1,13 +1,11 @@
-
 <?php
 require '../modelos/conectar.php';
-
 	if(isset($_POST['nombres']) && isset($_POST['apellidos'])){
 		$id=$_POST['id'];
-        $nombre=$_POST['nombres'];
-        $usuario=$_POST['usuario'];
-        $apellido=$_POST['apellidos'];
-        $estado=$_POST['estado'];
+    $nombre=strtoupper($_POST['nombres']);
+    $usuario=strtoupper($_POST['usuario']);
+    $apellido=strtoupper($_POST['apellidos']);
+    $estado=strtoupper($_POST['estado']);
 		$correoa=$_POST['correoa'];
 		$correon=$_POST['correon'];
 		$rol=$_POST['rol_usuario'];
@@ -25,24 +23,16 @@ require '../modelos/conectar.php';
 		}else{
 			$emailF=$correoa;
 		}
-
-		
 			$consulta2=$conexion->prepare("UPDATE tbl_usuario SET USU_USUARIO=:usuario, USU_NOMBRES=:nombre,USU_APELLIDOS=:apellido,USU_ESTADO=:estado,ROL_CODIGO=:rol,USU_CORREO=:correo WHERE USU_CODIGO=:id");
 			$consulta2->execute(array(":usuario"=>$usuario,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
             
             if($consulta2){
                 
-             echo '<script>alert("SE HA ACTUALIZADO CORRECTAMENTE LOS DATOS");window.location.href="../vistas/mostrar_vista.php"</script>';
+             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");window.location.href="../vistas/mostrar_vista.php"</script>';
             }else{
-                echo "Error: no se pudo actualizar los datos";
+              echo '<script>alert("ERROR NO SE ACTUALIZO REGISTRO");window.location.href="../vistas/mostrar_vista.php"</script>';
             }
-            
-
-
 	}
-
-
-
 //Recuperar datos
 	if(isset($_GET['USU_CODIGO'])){
 		$USU_CODIGO=$_GET['USU_CODIGO'];
@@ -51,13 +41,10 @@ require '../modelos/conectar.php';
 		$consulta->execute();
 		if($consulta->rowCount()>=1){
 			$fila=$consulta->fetch();
-            echo '<form action=" " method="POST" role="form">
-               
-            <div class="form-group">
-            
-            <input type="hidden"  class="form-control " name="id" value="'.$fila['USU_CODIGO'].'" >
-          </div>
-
+                echo '<form action=" " method="POST" role="form">
+                <div class="form-group">
+                 <input type="hidden"  class="form-control " name="id" value="'.$fila['USU_CODIGO'].'" >
+                </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
@@ -85,7 +72,6 @@ require '../modelos/conectar.php';
                 </div>
 
                 <div class="form-group">
-                  
                   <input type="hidden" class="form-control correo" placeholder="CORREO" name="correoa" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
 
@@ -94,9 +80,11 @@ require '../modelos/conectar.php';
                   <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
 
-              <div class="box-footer">
+                <div class="box-footer">
+                <div class="col text-center">
                 <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
-              </div>
+                </div>
+                </div>
             </form>
             ';
 
@@ -110,5 +98,4 @@ require '../modelos/conectar.php';
 	}else{
 		echo "Error no se pudo procesar la peticion";
     }
-    
     ?>
