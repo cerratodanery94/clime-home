@@ -18,7 +18,7 @@ $pass ="";
 for($i=0;$i<8;$i++) {
 $pass .=substr($caracteres,rand(0,53),1);
 }
-$idrol= $_POST["rol_usuario"];
+$idrol=2;
 $nombres= strtoupper ($_POST["nombres"]);
 $apellidos=strtoupper ( $_POST["apellidos"]);
 $usuario= strtoupper($_POST["usuario"]);
@@ -56,12 +56,12 @@ $correo= $_POST["correo"];
       
 
 		require '../modelos/conectar.php';
-		$consulta=$conexion->prepare("SELECT * FROM TBL_USUARIO WHERE USU_USUARIO='$usuario' or USU_CORREO='$correo' ");
+		$consulta=$conexion->prepare("SELECT * FROM TBL_USUARIO WHERE USU_USUARIO='$usuario'");
         $consulta->execute();
         $num_rows = $consulta->fetchColumn();
         
        if ($num_rows>0){ 
-		   echo '<script>alert("Usuario o correo ya esta registrado");window.location= "../vistas/insertar_mant_vista.php"</script>';
+		   echo '<script>alert("Usuario ya existe");window.location= "../vistas/insertar_mant_vista.php"</script>';
 		    
        }else{	
 		   

@@ -47,13 +47,29 @@
         <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
+        <div class="input-group">
+        <input id="contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
+        <div class="input-group-append">
+        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
+        </div>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+       <div class="input-group">
+       <div class="input-group">
+        <input id="confirmar_contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
+        <div class="input-group-append">
+        <button id="show_password" autocomplete="off" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon1"></span></button>
+        </div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group has-feedback">
         <input type="text" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="row">
-      <div class="form-group has-feedback">
       <div id ="alerta"></div>
-      </div>
         <!-- /.col -->
         <div class="col-12 forgot">
         <div style='float:center;margin:auto;width:90px;'><button type="button" class="btn btn-primary btnregistrar" onclick="validar_registro();">REGISTRARSE</button></div>
