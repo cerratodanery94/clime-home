@@ -56,12 +56,12 @@ $correo= $_POST["correo"];
       
 
 		require '../modelos/conectar.php';
-		$consulta=$conexion->prepare("SELECT * FROM TBL_USUARIO WHERE USU_USUARIO='$usuario'");
+		$consulta=$conexion->prepare("SELECT * FROM TBL_USUARIO WHERE USU_USUARIO='$usuario' or USU_CORREO='$correo'  ");
         $consulta->execute();
         $num_rows = $consulta->fetchColumn();
         
        if ($num_rows>0){ 
-		   echo '<script>alert("Usuario ya existe");window.location= "../vistas/autoregistro_vista.php"</script>';
+		   echo '<script>alert("Usuario o Correo Ya se encuentran Registrados");window.location= "../vistas/autoregistro_vista.php"</script>';
 		    
        }else{	
 		   
