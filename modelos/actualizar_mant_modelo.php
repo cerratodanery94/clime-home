@@ -3,28 +3,42 @@ require '../modelos/conectar.php';
 	if(isset($_POST['nombres']) && isset($_POST['apellidos'])){
 		$id=$_POST['id'];
     $nombre=strtoupper($_POST['nombres']);
-    $usuario=strtoupper($_POST['usuario']);
+    $usuarioa=strtoupper($_POST['usuarioa']);
+    $usuarion=strtoupper($_POST['usuarion']);
     $apellido=strtoupper($_POST['apellidos']);
     $estado=strtoupper($_POST['estado']);
 		$correoa=$_POST['correoa'];
 		$correon=$_POST['correon'];
 		$rol=$_POST['rol_usuario'];
 
-		if($correoa!=$correon){
-			$consulta1=$conexion->prepare("SELECT * FROM tbl_usuario WHERE USU_CORREO=:email");
-			$consulta1->bindParam(":email",$correon);
-			$consulta1->execute();
+    
+      if($correoa!=$correon){
+      $consulta1=$conexion->prepare("SELECT * FROM tbl_usuario WHERE  USU_CORREO=:email");
+			$consulta1->execute(array(":email"=>$correon));
 			if($consulta1->rowCount()>=1){
-				echo "Error: el email ya esta registrado";
+				echo "ERROR: USUARIO Y/O CORREO YA EXISTE";
 				exit();
 			}else{
-				$emailF=$correon;
+        $emailF=$correon;
 			}
 		}else{
-			$emailF=$correoa;
-		}
+      $emailF=$correoa;
+    }
+    if ($usuarioa!=$usuarion) {
+      $consulta3=$conexion->prepare("SELECT * FROM tbl_usuario WHERE USU_USUARIO=:user");
+      $consulta3->execute(array(":user"=>$usuarion));
+      if($consulta3->rowCount()>=1){
+				echo "ERROR: USUARIO Y/O CORREO YA EXISTE";
+				exit();
+			}else{
+        $usuariof=$usuarion;
+			}
+    } else {
+      $usuariof=$usuarioa;
+    }
+    
 			$consulta2=$conexion->prepare("UPDATE tbl_usuario SET USU_USUARIO=:usuario, USU_NOMBRES=:nombre,USU_APELLIDOS=:apellido,USU_ESTADO=:estado,ROL_CODIGO=:rol,USU_CORREO=:correo WHERE USU_CODIGO=:id");
-			$consulta2->execute(array(":usuario"=>$usuario,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
+			$consulta2->execute(array(":usuario"=>$usuariof,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
             
             if($consulta2){
                 
@@ -47,8 +61,12 @@ require '../modelos/conectar.php';
                 </div>
 
                 <div class="form-group">
+                  
+                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuarioa" value="'.$fila['USU_USUARIO'].'">
+                </div>
+                <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usuario" value="'.$fila['USU_USUARIO'].'">
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usuarion" value="'.$fila['USU_USUARIO'].'">
                 </div>
 
                 <div class="form-group">
