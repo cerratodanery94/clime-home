@@ -199,60 +199,7 @@
                                 else{
                                     document.getElementById("alerta").innerHTML="";
                                 }
-                                //VALIDAR QUE LAS CONTRASEÑAS COINCIDAN
-                                if(formulario.contra.value != formulario.confirmar_contra.value){
-                                    document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CONTRASEÑAS NO COINCIDEN </div>';
-                                    formulario.contra.value="";
-                                    formulario.confirmar_contra.value="";
-                                    formulario.contra.focus();
-                                    return false;
-                                }
-                                
-                                //VALIDAR CONTRASEÑA
-                                if (formulario.contra.value=="") {
-                                    //alert('Campos vacios');
-                                    document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO CONTRASEÑA VACIO</div>';
-                                    formulario.contra.focus();
-                                    return false;  
-                                }
-                                else if (validar_limitcontraseña (formulario.contra.value)==false){  
-                                    document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONTRASEÑA DEBE DE CONTENER AL MENOS(8) CARACTERES</div>';
-                                    formulario.contra.focus();
-                                    return false;
-                                    }
-                                    else if (Validar_espacio (formulario.contra.value)==false){  
-                                        document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
-                                        formulario.contra.focus();
-                                        formulario.confirmar_contra.value="";
-                                        formulario.contra.value="";
-                                        return false;
-                                        }
-                                    else{
-                                        document.getElementById("alerta").innerHTML="";
-                                    }
-                                    //VALIDAR CONFIRMAR CONTRASEÑA
-                                    if (formulario.confirmar_contra.value=="") {
-                                        //alert('Campos vacios');
-                                        document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO CONFIRMAR CONTRASEÑA VACIO</div>';
-                                        formulario.confirmar_contra.focus();
-                                        return false;  
-                                    }
-
-                                    else if (validar_limitcontraseña (formulario.confirmar_contra.value)==false){  
-                                        document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONFIRMAR CONTRASEÑA DEBE DE CONTENER AL MENOS(8) CARACTERES</div>';
-                                        formulario.confirmar_contra.focus();
-                                        return false;
-                                        }
-                                        else if (Validar_espacio (formulario.confirmar_contra.value)==false){  
-                                            document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
-                                            formulario.confirmar_contra.focus();
-                                            formulario.confirmar.contra.value="";
-                                            formulario.contra.value="";
-                                            return false;
-                                            }
-                                        else{
-                                            document.getElementById("alerta").innerHTML="";
-                                        }
+                            
                                         //VALIDAR CORREO
                                         if (formulario.correo.value=="") {
                                             //alert('Campos vacios');

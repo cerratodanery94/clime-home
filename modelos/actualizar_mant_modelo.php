@@ -45,41 +45,33 @@ require '../modelos/conectar.php';
                 <div class="form-group">
                  <input type="hidden"  class="form-control " name="id" value="'.$fila['USU_CODIGO'].'" >
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
                   <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuario" id="usuario" value="'.$fila['USU_USUARIO'].'">
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputPassword1">NOMBRES</label>
                   <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" value="'.$fila['USU_NOMBRES'].'" >
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputPassword1">APELLIDOS</label>
                   <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido" value="'.$fila['USU_APELLIDOS'].'" >
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputPassword1">ESTADO</label>
                   <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="estado" value="'.$fila['USU_ESTADO'].'" >
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputPassword1">ROL</label>
                   <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" value="'.$fila['ROL_CODIGO'].'" > 
                 </div>
-
                 <div class="form-group">
                   <input type="hidden" class="form-control correo" placeholder="CORREO" name="correoa" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputPassword1">CORREO</label>
                   <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
-
                 <div class="box-footer">
                 <div class="col text-center">
                 <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
