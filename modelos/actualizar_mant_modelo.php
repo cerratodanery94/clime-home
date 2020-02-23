@@ -28,7 +28,7 @@ require '../modelos/conectar.php';
             
             if($consulta2){
                 
-             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENT");window.location.href="../vistas/mostrar_vista.php"</script>';
+             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");window.location.href="../vistas/mostrar_vista.php"</script>';
             }else{
               echo '<script>alert("ERROR NO SE ACTUALIZO REGISTRO");window.location.href="../vistas/mostrar_vista.php"</script>';
             }

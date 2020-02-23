@@ -46,22 +46,10 @@
         <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
         <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback">
-        <div class="input-group">
-        <input id="contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONTRASEÑA" name="contra">
-        <div class="input-group-append">
-        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
-        </div>
-        </div>
-      </div>
+     
       <div class="form-group has-feedback">
        <div class="input-group">
-       <div class="input-group">
-        <input id="confirmar_contra" autocomplete="off" type="password" class="form-control contra" placeholder="CONFIRMAR CONTRASEÑA" name="confirmar_contra"  >
-        <div class="input-group-append">
-        <button id="show_password" autocomplete="off" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon1"></span></button>
-        </div>
-        </div>
+     
       </div>
       </div>
       <div class="form-group has-feedback">
