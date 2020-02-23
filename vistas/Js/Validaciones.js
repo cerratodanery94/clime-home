@@ -652,3 +652,41 @@ function Validar_resres() {
 
    formulario_cam.submit();
 }
+
+//VALIDAR FORMULARIO PREGUNTAS VISTA
+function validar_pre(){
+var formulario_pr=document.form_pregun;
+
+if (formulario_pr.combox.value==0){
+    document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION </div>';
+   formulario_pr.combox.focus();
+   return false;
+}
+if (formulario_pr.respuesta.value==""){
+    document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO RESPUESTA VACIO </div>';
+   formulario_pr.respuesta.focus();
+   return false;
+}
+
+formulario_pr.submit();
+
+}
+
+//VALIDAR RECUPERAR PREGUNTAS VISTA
+function validar_recu(){
+    var formulario_rec=document.form_recu;
+    
+    if (formulario_rec.combox2.value==0){
+        document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION </div>';
+       formulario_rec.combox2.focus();
+       return false;
+    }
+    if (formulario_rec.respuesta2.value==""){
+        document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO RESPUESTA VACIO </div>';
+       formulario_rec.respuesta2.focus();
+       return false;
+    }
+    
+    formulario_rec.submit();
+    
+    }
