@@ -235,10 +235,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        MANTENIMIENTO ACTUALIZAR 
-      </h1>
-      
-      
+     ACTUALIZAR USUARIO
+     <div></div>
+      <small>Edita los campos que deseas cambiar </small>
     </section>
 
     <!-- Main content -->
@@ -268,9 +267,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2020 <a href="http://almsaeedstudio.com"> SYSTEM 32</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -292,6 +291,8 @@
 <script src="../vistas/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../vistas/dist/js/app.min.js"></script>
+<!-- Validaciones-->
+<script src="../vistas/Js/Validaciones.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../vistas/dist/js/demo.js"></script>
 </body>
