@@ -58,61 +58,53 @@ require '../modelos/conectar.php';
 		$consulta->execute();
 		if($consulta->rowCount()>=1){
 			$fila=$consulta->fetch();
-                echo '<form action=" " method="POST" role="form">
+                echo '<form action=" " method="POST" role="form"name="Formactualizar_mant">
                 <div class="form-group">
                  <input type="hidden"  class="form-control " name="id" value="'.$fila['USU_CODIGO'].'" >
                 </div>
 
                 <div class="form-group">
                   
-                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuarioa" value="'.$fila['USU_USUARIO'].'">
+                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuario" value="'.$fila['USU_USUARIO'].'">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usuarion" value="'.$fila['USU_USUARIO'].'">
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usu" value="'.$fila['USU_USUARIO'].'">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">NOMBRES</label>
-                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" value="'.$fila['USU_NOMBRES'].'" >
+                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="usu_nombre" value="'.$fila['USU_NOMBRES'].'" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">APELLIDOS</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido" value="'.$fila['USU_APELLIDOS'].'" >
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="ESTADO" id="usu_apellido" value="'.$fila['USU_APELLIDOS'].'" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">ESTADO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="estado" value="'.$fila['USU_ESTADO'].'" >
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="usu_estado" value="'.$fila['USU_ESTADO'].'" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" value="'.$fila['ROL_CODIGO'].'" > 
+                  <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id=usu_rol value="'.$fila['ROL_CODIGO'].'" > 
                 </div>
 
-                <div class="form-group">
-                  <input type="hidden" class="form-control correo" placeholder="CORREO" name="correoa" id="correo" value="'.$fila['USU_CORREO'].'" >
-                </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">CORREO</label>
-                  <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo" value="'.$fila['USU_CORREO'].'" >
+                  <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo_usu" value="'.$fila['USU_CORREO'].'" >
                 </div>
-
                 <div class="box-footer">
                 <div class="col text-center">
-                <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
+                <div Id="alerta_mant"></div>
+                <button type="button" class="btn btn-primary"onclick="Validar_actualizar_mant();">ACTUALIZAR</button>
                 </div>
                 </div>
             </form>
             ';
-
-
-			
-				
-			
 		}else{
 			echo "Ocurrio un error";
 		}
