@@ -1,11 +1,3 @@
-<?php
-session_start();
-require '../modelos/conectar.php';
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-  $resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10,":accion"=>'INGRESO',":descr"=>'INGRESO ALA PANTALLA DE ACTUALIZAR MATENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +43,7 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="../modelos/cerrar_sesion_modelo.php">  
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
             <span class="hidden-xs">SALIR</span>
             </a>
             <ul class="dropdown-menu">
@@ -243,9 +235,10 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-     ACTUALIZAR USUARIO
-     <div></div>
-      <small>Edita los campos que deseas cambiar </small>
+        MANTENIMIENTO ACTUALIZAR 
+      </h1>
+      
+      
     </section>
 
     <!-- Main content -->
@@ -275,9 +268,9 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
+      <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2020 <a href="http://almsaeedstudio.com"> SYSTEM 32</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -299,7 +292,6 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10
 <script src="../vistas/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../vistas/dist/js/app.min.js"></script>
-<!-- Validaciones-->
 <script src="../vistas/Js/Validaciones.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../vistas/dist/js/demo.js"></script>

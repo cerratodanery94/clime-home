@@ -39,10 +39,7 @@ require '../modelos/conectar.php';
     
 			$consulta2=$conexion->prepare("UPDATE tbl_usuario SET USU_USUARIO=:usuario, USU_NOMBRES=:nombre,USU_APELLIDOS=:apellido,USU_ESTADO=:estado,ROL_CODIGO=:rol,USU_CORREO=:correo WHERE USU_CODIGO=:id");
 			$consulta2->execute(array(":usuario"=>$usuariof,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
-      $sql2="INSERT INTO TBL_BITACORA (USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-      VALUES (:usuc,:objeto,:accion,:descr,:fecha)";
-        $resultado2=$conexion->prepare($sql2);	
-      $resultado2->execute(array(":usuc"=>$_SESSION["id_us"],":objeto"=>10,":accion"=>'UPDATE',":descr"=>'ACTUALIZO UN USUARIO EN MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));   
+            
             if($consulta2){
                 
              echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");window.location.href="../vistas/mostrar_vista.php"</script>';
@@ -58,53 +55,67 @@ require '../modelos/conectar.php';
 		$consulta->execute();
 		if($consulta->rowCount()>=1){
 			$fila=$consulta->fetch();
-                echo '<form action=" " method="POST" role="form"name="Formactualizar_mant">
+                echo '<form action=" " method="POST" role="form" name="Formactualizar_mant">
                 <div class="form-group">
                  <input type="hidden"  class="form-control " name="id" value="'.$fila['USU_CODIGO'].'" >
                 </div>
 
                 <div class="form-group">
                   
-                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuario" value="'.$fila['USU_USUARIO'].'">
+                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuarioa" value="'.$fila['USU_USUARIO'].'">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">USUARIO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usu" value="'.$fila['USU_USUARIO'].'">
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usuarion" value="'.$fila['USU_USUARIO'].'">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">NOMBRES</label>
-                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="usu_nombre" value="'.$fila['USU_NOMBRES'].'" >
+                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" value="'.$fila['USU_NOMBRES'].'" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">APELLIDOS</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="ESTADO" id="usu_apellido" value="'.$fila['USU_APELLIDOS'].'" >
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido" value="'.$fila['USU_APELLIDOS'].'" >
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">ESTADO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="usu_estado" value="'.$fila['USU_ESTADO'].'" >
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="estado" value="'.$fila['USU_ESTADO'].'" >
                 </div>
+                
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id=usu_rol value="'.$fila['ROL_CODIGO'].'" > 
+                <label for="exampleInputPassword1">ROL</label>
+                <select class="form-control" name="rol_usuario" id="combox">
+                 <option value="0">SELECCIONE ROL:</option>
+                 <option value="1">ADMINISTRADOR</option>
+                 <option value="2">INVITADO</option>
+      
+        
+         
+                </select>
                 </div>
 
+              
+ 
+                <div class="form-group">
+                  <input type="hidden" class="form-control correo" placeholder="CORREO" name="correoa" id="correo" value="'.$fila['USU_CORREO'].'" >
+                </div>
 
                 <div class="form-group">
                   <label for="exampleInputPassword1">CORREO</label>
-                  <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo_usu" value="'.$fila['USU_CORREO'].'" >
+                  <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
                 <div class="box-footer">
                 <div class="col text-center">
                 <div Id="alerta_mant"></div>
-                <button type="button" class="btn btn-primary"onclick="Validar_actualizar_mant();">ACTUALIZAR</button>
+                <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
                 </div>
                 </div>
             </form>
             ';
+
 		}else{
 			echo "Ocurrio un error";
 		}
