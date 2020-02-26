@@ -23,9 +23,9 @@ try {
               $sql2=("UPDATE TBL_USUARIO SET USU_PASSWORD=:nueva,USU_TOKEN=:token,USU_FECHA_TOKEN=:f_venc WHERE USU_CODIGO=:codigo");
               $resultado2=$conexion->prepare($sql2);
               $resultado2->execute(array(":nueva"=>$pass_nueva_cifrado,":token"=>NULL,":f_venc"=>NULL,":codigo"=>$id));
-              $_SESSION=array();
+              
               session_destroy();
-              echo '<script>alert("SE HA RESTABLECIDO LA CONTRASEÑA CORRECTAMENTE");window.location.href="../vistas/login_vista.php"</script>';
+              echo '<script>alert("SE HA RESTABLECIDO LA CONTRASEÑA CORRECTAMENTE");window.location="../vistas/login_vista.php"</script>';
             } 
              
             }

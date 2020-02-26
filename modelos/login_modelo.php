@@ -1,32 +1,47 @@
 <?php
+
 try{
 	$login=strtoupper(htmlentities(addslashes($_POST["login"])));
 	$password=htmlentities(addslashes($_POST["contra2"]));
+	$estado='BLOQUEADO';
 	$contador=0;
-    require '../modelos/conectar.php';
+	require '../modelos/conectar.php';
 	$sql="SELECT * FROM TBL_USUARIO WHERE USU_USUARIO= :login";
 	$resultado=$conexion->prepare($sql);	
 	$resultado->execute(array(":login"=>$login));
 	session_start();
+	if (!isset($_SESSION['cont_inte'])){
+		$_SESSION['cont_inte']=1;
+		 } 
+		 $sql5='SELECT * FROM TBL_PARAMETROS WHERE PARMT_CODIGO=2';
+	        $resultado5=$conexion->query($sql5);	
+		     while($registro5=$resultado5->fetch(PDO::FETCH_ASSOC)){			
+				$_SESSION['parametro']=	$registro5['PARMT_VALOR'];
+            }
 		while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){			
 				if (password_verify($password,$registro['USU_PASSWORD'])) {
 					$_SESSION["id_us"]=$registro['USU_CODIGO'];
 					$_SESSION["est"]=$registro['USU_ESTADO'];
+					
 					$contador++;
 				}	
 		}
 		if ($contador>0){
 			if ($_SESSION["est"]) {
                     switch ($_SESSION["est"]) {
-					case 'NUEVO':   
+					case 'NUEVO': 
 					header("location:../vistas/preguntas_vista.php");  
 					break;
 					case 'ACTIVO':  
-					header("location:../vistas/blank.php");            
+					$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+		            VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+	                $resultado2=$conexion->prepare($sql2);	
+		            $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>2,":accion"=>'INGRESO',":descr"=>'INICIO SESION',":fecha"=>date("Y-m-d H:m:s")));
+					header("location:../vistas/insertar_mant_vista.php");            
 					break;
 					case 'BLOQUEADO':  
-						echo '<script>alert("TU USUARIO HA SIDO BLOQUEADO CONTACTA CON EL ADNISTRADOR");window.location= "../vistas/login_vista.php"</script>';         
-						break;
+					echo '<script>alert("TU USUARIO HA SIDO BLOQUEADO CONTACTA CON EL ADNISTRADOR");window.location= "../vistas/login_vista.php"</script>';         
+					break;
 					default:    
 					header("location:../vistas/login_vista.php");     
 					break;
@@ -35,7 +50,20 @@ try{
                 echo "La variable estado no tiene datos";                
               }
 		}else{
-            echo '<script>alert("USUARIO O CONTRASEÑA INCORRECTA ");window.location= "../vistas/login_vista.php"</script>';
+			
+				
+				if ($_SESSION['cont_inte']<$_SESSION['parametro']){
+					++$_SESSION['cont_inte'];
+					echo '<script>alert("USUARIO O CONTRASEÑA INCORRECTA ");window.location= "../vistas/login_vista.php"</script>';
+				}else {
+					$sql3=("UPDATE TBL_USUARIO SET  USU_ESTADO=:estado WHERE USU_USUARIO=:usu");
+					$resultado3=$conexion->prepare($sql3);
+					$resultado3->execute(array(":estado"=>$estado,":usu"=>$login));
+					unset($_SESSION['cont_inte']); 
+				   echo '<script>alert("Has superado el número de intentos y el acceso a esta cuenta ha sido bloqueado. Contacta con el administrador");window.location="../vistas/login_vista.php"</script>';
+				             
+				}
+			   
 		}
 		$resultado->closeCursor();
 		

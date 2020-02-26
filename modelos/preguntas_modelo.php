@@ -8,7 +8,7 @@ try {
             $_SESSION['cont_preg']=1;
              }  
 
-            $sql='SELECT * FROM TBL_PARAMETROS';
+            $sql='SELECT * FROM TBL_PARAMETROS WHERE PARMT_CODIGO=1';
 	        $resultado=$conexion->query($sql);	
 		     while($registro=$resultado->fetch(PDO::FETCH_ASSOC)){			
 				$_SESSION['parametro']=	$registro['PARMT_VALOR'];
@@ -24,7 +24,7 @@ try {
                  ++$_SESSION['cont_preg'];
                  header('location:../vistas/preguntas_vista.php');
              }else {
-                echo '<script>alert("SE HA REGISTRADO LA PREGUNTAS Y RESPUESTAS CON EXITO");window.location.href="../vistas/cambiar_contra_vista.php"</script>';
+                echo '<script>alert("SE HA REGISTRADO LA PREGUNTAS Y RESPUESTAS CON EXITO");window.location="../vistas/cambiar_contra_vista.php"</script>';
                 unset($_SESSION['cont_preg']);           
              }
             }

@@ -39,7 +39,10 @@ require '../modelos/conectar.php';
     
 			$consulta2=$conexion->prepare("UPDATE tbl_usuario SET USU_USUARIO=:usuario, USU_NOMBRES=:nombre,USU_APELLIDOS=:apellido,USU_ESTADO=:estado,ROL_CODIGO=:rol,USU_CORREO=:correo WHERE USU_CODIGO=:id");
 			$consulta2->execute(array(":usuario"=>$usuariof,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
-            
+      $sql2="INSERT INTO TBL_BITACORA (USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+      VALUES (:usuc,:objeto,:accion,:descr,:fecha)";
+        $resultado2=$conexion->prepare($sql2);	
+      $resultado2->execute(array(":usuc"=>$_SESSION["id_us"],":objeto"=>10,":accion"=>'UPDATE',":descr"=>'ACTUALIZO UN USUARIO EN MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));   
             if($consulta2){
                 
              echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");window.location.href="../vistas/mostrar_vista.php"</script>';

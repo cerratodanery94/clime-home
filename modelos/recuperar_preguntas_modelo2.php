@@ -15,7 +15,7 @@ try{
             $sql2=("UPDATE TBL_USUARIO SET  USU_ESTADO=:estado WHERE USU_CODIGO=:id_usu");
             $resultado2=$conexion->prepare($sql2);
             $resultado2->execute(array(":estado"=>$estado,":id_usu"=>$_SESSION["id_u"]));
-            echo '<script>alert("TU USUARIO HA SIDO BLOQUEADO CONTACTA CON EL ADNISTRADOR");window.location= "../vistas/login_vista.php"</script>';
+            echo '<script>alert("TU USUARIO HA SIDO BLOQUEADO CONTACTA CON EL ADMINISTRADOR");window.location= "../vistas/login_vista.php"</script>';
         }else{
             header('location:../vistas/restablecer_preguntas_vista.php');
          }   

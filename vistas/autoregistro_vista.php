@@ -35,35 +35,28 @@
        
     <div class="form-group has-feedback">
       <!--<label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>-->
-        <input type="text" autocomplete="off" class="form-control nombres" placeholder="NOMBRES"  name="nombres" id="nombres">
+        <input type="text" autocomplete="off" class="form-control nombres" style="text-transform:uppercase" placeholder="NOMBRES"  name="nombres" id="nombres">
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>     
       <div class="form-group has-feedback">
-        <input type="text" autocomplete="off" class="form-control apellidos" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
+        <input type="text" autocomplete="off" class="form-control apellidos"  style="text-transform:uppercase" placeholder="APELLIDOS"  name="apellidos" id="apellidos" >
         <span class="	fa fa-id-card form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
+        <input type="text" autocomplete="off" style="text-transform:uppercase"  style="text-transform:uppercase" class="form-control usuario" placeholder="USUARIO" name="usuario" id="usuario">
         <span class="	glyphicon glyphicon-user form-control-feedback"></span>
       </div>
-     
-      <div class="form-group has-feedback">
-       <div class="input-group">
-     
-      </div>
-      </div>
+  
       <div class="form-group has-feedback">
         <input type="text" autocomplete="off" class="form-control correo" placeholder="CORREO" name="correo" id="correo" >
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-      <div class="row">
       <div id ="alerta"></div>
-        <!-- /.col -->
+      <div class="row">
         <div class="col-12 forgot">
         <div style='float:center;margin:auto;width:90px;'><button type="button" class="btn btn-primary btnregistrar" onclick="validar_registro();">REGISTRARSE</button></div>
         </div>     
     </div>
-        <!-- /.col -->
       </div>
     </form>
     <br>

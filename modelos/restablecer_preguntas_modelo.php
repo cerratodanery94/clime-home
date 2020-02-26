@@ -11,9 +11,8 @@ try {
     $resultado=$conexion->prepare($sql);
     $resultado->execute(array(":nueva_contrap"=>$pass_nueva_cifrado2,":id_u"=>$id_u));
 
-    //$_SESSION=array();
     session_destroy();
-    echo '<script>alert("SE HA CAMBIADO LA CONTRASEÑA CORRECTAMENTE");window.location.href="../vistas/login_vista.php"</script>';
+    echo '<script>alert("SE HA CAMBIADO LA CONTRASEÑA CORRECTAMENTE");window.location="../vistas/login_vista.php"</script>';
     $resultado->closeCursor();
 
     }catch (Exception $e) {

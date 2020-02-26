@@ -11,10 +11,9 @@ try {
     $sql=("UPDATE TBL_USUARIO SET USU_PASSWORD=:nueva, USU_ESTADO=:estado WHERE USU_CODIGO=:id_usu");
     $resultado=$conexion->prepare($sql);
     $resultado->execute(array(":nueva"=>$pass_nueva_cifrado, ":estado"=>$estado,":id_usu"=>$id_usu));
-
-    $_SESSION=array();
+    
     session_destroy();
-    echo '<script>alert("SE HA CAMBIADO LA CONTRASEÑA CORRECTAMENTE");window.location.href="../vistas/login_vista.php"</script>';
+    echo '<script>alert("SE HA CAMBIADO LA CONTRASEÑA CORRECTAMENTE");window.location="../vistas/login_vista.php"</script>';
     $resultado->closeCursor();
 
     }catch (Exception $e) {

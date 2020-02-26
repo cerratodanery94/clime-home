@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["id_us"])) {
+  header('location:../vistas/login_vista.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +49,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+            <a href="../modelos/cerrar_sesion_modelo.php" >  
             <span class="hidden-xs">SALIR</span>
             </a>
             <ul class="dropdown-menu">

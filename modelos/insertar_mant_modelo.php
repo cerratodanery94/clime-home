@@ -1,5 +1,5 @@
 <?php	
-
+session_start();
 // Importar clases PHPMailer en el espacio de nombres global
 // Deben estar en la parte superior de su script, no dentro de una función
 use PHPMailer\PHPMailer\PHPMailer;
@@ -68,18 +68,26 @@ $correo= $_POST["correo"];
 		   
 	   $sql="INSERT INTO TBL_USUARIO (ROL_CODIGO,USU_USUARIO,USU_NOMBRES,USU_APELLIDOS,USU_PASSWORD,USU_ESTADO,USU_PREGUNTAS_CONTESTADAS,USU_PRIMER_INGRESO,USU_FECHA_CREACION,USU_FECHA_VENCIMIENTO,USU_TOKEN,USU_FECHA_TOKEN,USU_CORREO) 
 	   VALUES (:rol,:usuario,:nombres,:apellidos,:contra,:estado,'','',:fecha_creacion,:fecha_vencimiento,'','',:correo)";
-	
 	   $resultado=$conexion->prepare($sql);	
-       $resultado->execute(array(":rol"=>$idrol,":usuario"=>$usuario,":nombres"=>$nombres,":apellidos"=>$apellidos,":contra"=>$pass_cifrado,":estado"=>$estado,":fecha_creacion" =>$fecha_creacion, ":fecha_vencimiento"=>$fecha_vencimiento,":correo"=>$correo));
+	   $resultado->execute(array(":rol"=>$idrol,":usuario"=>$usuario,":nombres"=>$nombres,":apellidos"=>$apellidos,":contra"=>$pass_cifrado,":estado"=>$estado,":fecha_creacion" =>$fecha_creacion, ":fecha_vencimiento"=>$fecha_vencimiento,":correo"=>$correo));
+	   
+
+	   $sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+		VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+	    $resultado2=$conexion->prepare($sql2);	
+		$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,":accion"=>'INSERTO',":descr"=>'CREO UN USUARIO EN MANTENIMIENTO',":fecha"=>$fecha_vencimiento));
+		
 	   if ($resultado) {
 		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");window.location= "../vistas/insertar_mant_vista.php"</script>';
 			
 	   } else {
 		echo '<script>alert("Error al registrarse");window.location= "../vistas/insertar_mant_vista.php"</script>';	
 		}
-	
+
+		
 		
 		$resultado->closeCursor();
+		$resultado2->closeCursor();
 	}
 	}catch(Exception $e){			
 		
