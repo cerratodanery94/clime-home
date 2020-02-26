@@ -284,8 +284,17 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">ROL</label>
-                  <input type="text" autocomplete="off" style="text-transform:uppercase" class="form-control apellidos" placeholder="ROL DE USUARIO"  name="rol_usuario" id="rol_usuario" >
+                <label for="exampleInputPassword1">ROL</label>
+                <select class="form-control" name="rol_usuario" id="combox">
+        <option value="0">SELECCIONE ROL:</option>
+                <?php
+        require '../modelos/conectar.php';
+          $resultado = $conexion -> query ("SELECT * FROM TBL_ROL");
+          while ($registro=$resultado->fetch(PDO::FETCH_ASSOC)) {
+            echo '<option value="'.$registro["ROL_CODIGO"].'">'.$registro["ROL_NOMBRE"].'</option>';
+          }
+        ?>
+        </select>
                 </div>
 
                    

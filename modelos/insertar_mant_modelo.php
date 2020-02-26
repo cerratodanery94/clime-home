@@ -18,7 +18,7 @@ $pass ="";
 for($i=0;$i<8;$i++) {
 $pass .=substr($caracteres,rand(0,53),1);
 }
-$idrol=2;
+$idrol=$_POST['rol_usuario'];
 $nombres= strtoupper ($_POST["nombres"]);
 $apellidos=strtoupper ( $_POST["apellidos"]);
 $usuario= strtoupper($_POST["usuario"]);
