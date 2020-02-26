@@ -37,12 +37,12 @@
       <div class="row">
       <div id ="alerta3"></div>
         <div class="col text-center">
-        <div><button type="button" name="correo" class="btn btn-primary btn-correo"onclick="Validar_recuperar(); document.Form_recuperar.action = '../modelos/recuperar_correo_modelo.php'; document.Form_recuperar.button()">RECUPERAR POR CORREO</button>
+        <div><button type="button" name="correo" class="btn btn-primary btn-correo"onclick="Validar_recuperar(); document.Form_recuperar.action = '../modelos/recuperar_correo_modelo.php'; document.Form_recuperar.submit()">RECUPERAR POR CORREO</button>
         </div>
       </div>
       <br>
       <div class="col text-center">
-        <div><button type="button" name="preguntas" class="btn btn-primary btn-preguntas "onclick="Validar_recuperar();document.Form_recuperar.action = '../modelos/recuperar_preguntas_modelo.php'; document.Form_recuperar.button()">RECUPERAR POR PREGUNTAS</button>
+        <div><button type="button" name="preguntas" class="btn btn-primary btn-preguntas "onclick="Validar_recuperar();document.Form_recuperar.action = '../modelos/recuperar_preguntas_modelo.php'; document.Form_recuperar.submit()">RECUPERAR POR PREGUNTAS</button>
         </div>
       </div>
     </form>

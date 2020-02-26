@@ -8,9 +8,9 @@ $pass_nueva_cifrado=password_hash($nueva_contra,PASSWORD_DEFAULT,array("cost"=>1
 
 try {
         require '../modelos/conectar.php';
-        $sql="SELECT * FROM TBL_USUARIO WHERE USU_TOKEN=:token LIMIT 1";
+        $sql="SELECT * FROM TBL_USUARIO WHERE USU_CODIGO=:id_usuario and USU_TOKEN=:token";
         $resultado=$conexion->prepare($sql);	
-        $resultado->execute(array(":token"=>$token));
+        $resultado->execute(array(":id_usuario"=>$id,":token"=>$token));
         $num_rows = $resultado->fetchColumn();
 
         if ($num_rows==0){ 
