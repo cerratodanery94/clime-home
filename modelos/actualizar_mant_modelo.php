@@ -80,11 +80,15 @@ require '../modelos/conectar.php';
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">ESTADO</label>
-                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="estado" id="estado" value="'.$fila['USU_ESTADO'].'" >
+                <label for="exampleInputPassword1">ESTADO</label>
+                <select class="form-control" name="estado" id="combox2">
+                 <option value="0">SELECCIONE EL ESTADO:</option>
+                 <option value="NUEVO">NUEVO</option>
+                 <option value="ACTIVO">ACTIVO</option>
+                 <option value="BLOQUEADO">BLOQUEADO</option>
+                 <option value="VACACIONES">VACACIONES</option>
+                </select>
                 </div>
-                
-
                 <div class="form-group">
                 <label for="exampleInputPassword1">ROL</label>
                 <select class="form-control" name="rol_usuario" id="combox">
@@ -92,13 +96,9 @@ require '../modelos/conectar.php';
                  <option value="1">ADMINISTRADOR</option>
                  <option value="2">INVITADO</option>
       
-        
-         
                 </select>
                 </div>
 
-              
- 
                 <div class="form-group">
                   <input type="hidden" class="form-control correo" placeholder="CORREO" name="correoa" id="correo" value="'.$fila['USU_CORREO'].'" >
                 </div>
@@ -110,7 +110,8 @@ require '../modelos/conectar.php';
                 <div class="box-footer">
                 <div class="col text-center">
                 <div Id="alerta_mant"></div>
-                <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
+    
+                <button type="button" class="btn btn-primary"onclick="Validar_actualizar_mant();">ACTUALIZAR</button>
                 </div>
                 </div>
             </form>
