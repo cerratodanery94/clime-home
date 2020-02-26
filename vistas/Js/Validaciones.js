@@ -495,13 +495,15 @@
                             }
 
                             //validar campo Rol
-                            if (formulario_man.rol_usuario.value=="") {
-                                //alert('Campos vacios');
-                                document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO ROL VACIO</div>';
-                                formulario_man.rol_usuario.focus();
-                                return false;
                             
-                            }
+
+                                if (formulario_man.combox.value==0){
+                                    document.getElementById("alerta").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION EN EL CAMPO ROL</div>';
+                                   formulario_man.combox.focus();
+                                   return false;
+                                }
+                            
+                            
                           
                             
 
@@ -669,7 +671,7 @@ function validar_pre(){
 var formulario_pr=document.form_pregun;
 
 if (formulario_pr.combox.value==0){
-    document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION </div>';
+    document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION EN EL CAMPO PREGUNTA</div>';
    formulario_pr.combox.focus();
    return false;
 }
@@ -688,7 +690,7 @@ function validar_recu(){
     var formulario_rec=document.form_recu;
     
     if (formulario_rec.combox2.value==0){
-        document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION </div>';
+        document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECIONE UNA OPCION EN EL CAMPO PREGUNTA </div>';
        formulario_rec.combox2.focus();
        return false;
     }
