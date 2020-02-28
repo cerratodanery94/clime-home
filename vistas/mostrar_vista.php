@@ -395,7 +395,18 @@ alert("texto cambiado");
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $('#example1').DataTable({
+      language: {
+        sSearch: "Buscar:",
+        sInfo:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        sLengthMenu:     "Mostrar _MENU_ registros",
+        oPaginate: {
+                    "sFirst":    "Primero",
+                    "sLast":     "Último",
+                    "sNext":     "Siguiente",
+                    "sPrevious": "Anterior"
+                }
+    }});
     $('#example2').DataTable({
       "paging": true,
       "pagelength":3,
