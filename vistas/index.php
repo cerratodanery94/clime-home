@@ -1,22 +1,15 @@
 <?php
 session_start();
-require_once "../modelos/conectar.php"; 
-   
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-$resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11,":accion"=>'INGRESO',":descr"=>'INGRESO ALA PANTALLA DE MOSTRAR USUARIOS MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));         
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-$resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11,":accion"=>'CONSULTA',":descr"=>'MUESTRA LA LISTA DE USUARIOS  QUE HAY MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));
+if (!isset($_SESSION["id_us"])) {
+  header('location:../vistas/login_vista.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mostrar Usuarios</title>
+  <title>AdminLTE 2 | Blank Page</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -25,29 +18,14 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../vistas/plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+ 
   <link rel="stylesheet" href="../vistas/dist/css/skins/_all-skins.min.css">
-<script>
-   function confdelete(){
-    var respuesta= confirm("¿Esta seguro de eliminar el registro?");
-    if (respuesta==true){
-      return true;
-    }else{
-      return false;
-    }
-  }
 
-</script>
 </head>
-
-
 <body class="hold-transition skin-blue sidebar-mini">
-
+<!-- Site wrapper -->
 <div class="wrapper">
 
   <header class="main-header">
@@ -56,7 +34,7 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>H</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CLIME</b>HOME</span>
+      <span class="logo-lg"><b>CLIME</b>LTE</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -71,7 +49,7 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="../modelos/cerrar_sesion_modelo.php">  
+            <a href="../modelos/cerrar_sesion_modelo.php" >  
             <span class="hidden-xs">SALIR</span>
             </a>
             <ul class="dropdown-menu">
@@ -105,20 +83,6 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
       <ul class="sidebar-menu">
         <li class="header">Barra de Navengacion</li>
        
-       <!-- Titulo de Usuario -->
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-user"></i>
-          <span>Usuarios</span>
-        </a>
-        <!-- subtitulos de Usuario -->
-        <ul class="treeview-menu">
-          <li><a href="../vistas/insertar_mant_vista.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
-         
-
-        </ul>
-      </li>
        <!-- Titulo de Empleados -->
       <li class="treeview">
         <a href="#">
@@ -271,7 +235,7 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LISTA DE USUARIOS
+        BIENVENIDO
         
       </h1>
       
@@ -279,57 +243,23 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">ADMINISTRA LOS USUARIOS EN ESTA SECCION </h3>
-            </div>
-            <!--llamar funciones-->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th >ID USUARIO</th>
-                  <th>ROL</th>
-                  <th>USUARIO</th>
-                  <th>NOMBRES</th>
-                  <th>APELLIDOS</th>
-                  <th>ESTADO</th>
-                  <th>CORREO</th>
-                  <th>ACCIONES</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                require_once "../modelos/mostrar_modelo.php";
-                    require_once "../modelos/conectar.php";
-                    if(isset($_GET['USU_CODIGO'])){
-                     require_once "../modelos/eliminar_mant_modelo.php";
-                   }
-                ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                <th>ID USUARIO</th>
-                  <th>ROL</th>
-                  <th>USUARIO</th>
-                  <th>NOMBRES</th>
-                  <th>APELLIDOS</th>
-                  <th>ESTADO</th>
-                  <th>CORREO</th>
-                  <th>ACCIONES</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">PANTALLA PRICIPAL</h3>
+
+          
         </div>
-        <!-- /.col -->
+        <div class="box-body">
+          Start creating your amazing application!
+        </div>
+        <!-- /.box-body -->
+        
+        <!-- /.box-footer-->
       </div>
-      <!-- /.row -->
+      <!-- /.box -->
+
     </section>
     <!-- /.content -->
   </div>
@@ -355,9 +285,6 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../vistas/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../vistas/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../vistas/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="../vistas/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -366,20 +293,5 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
 <script src="../vistas/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../vistas/dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "pagelength":3,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 </body>
 </html>

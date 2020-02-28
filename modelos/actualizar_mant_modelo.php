@@ -41,10 +41,13 @@ require '../modelos/conectar.php';
 			$consulta2->execute(array(":usuario"=>$usuariof,":nombre"=>$nombre,":apellido"=>$apellido,":estado"=>$estado,":rol"=>$rol, ":correo"=>$emailF,":id"=>$id));
             
             if($consulta2){
-                
-             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");window.location.href="../vistas/mostrar_vista.php"</script>';
+            $sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+             VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+             $resultado2=$conexion->prepare($sql2);	
+             $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10,":accion"=>'UPDATE',":descr"=>'ACTUALIZO UN USUARIO EN PANTALLA DE ACTUALIZAR USUARIOS MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));
+             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");location.href="../vistas/mostrar_vista.php"</script>';
             }else{
-              echo '<script>alert("ERROR NO SE ACTUALIZO REGISTRO");window.location.href="../vistas/mostrar_vista.php"</script>';
+              echo '<script>alert("ERROR NO SE ACTUALIZO REGISTRO");location.href="../vistas/mostrar_vista.php"</script>';
             }
 	}
 //Recuperar datos

@@ -51,7 +51,7 @@ try{
          }   
          $template=file_get_contents('../vistas/template.php');
          $template=str_replace("{{name}}",$_SESSION['usu'],$template);
-         $template=str_replace("{{action_url_1}}","http://localhost:8080/clime-home/vistas/restablecer_contraseña.php",$template);
+         $template=str_replace("{{action_url_1}}","http://localhost:8080/clime-home/vistas/restablecer_contraseña.php?'.$token.'",$template);
          $template=str_replace("{{year}}",date('Y'),$template);
           //Configuración del servidor
         $mail->SMTPDebug = 0;                       // Habilitar salida de depuración detallada

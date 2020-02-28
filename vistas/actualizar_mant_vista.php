@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once "../modelos/conectar.php"; 
+$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+$resultado2=$conexion->prepare($sql2);	
+$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>10,":accion"=>'INGRESO',":descr"=>'INGRESO ALA PANTALLA DE ACTUALIZAR USUARIOS MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));            
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +24,16 @@
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
  
   <link rel="stylesheet" href="../vistas/dist/css/skins/_all-skins.min.css">
-
+<script >
+  function confdelete(){
+    var respuesta= confirm("¿Esta seguro de eliminar el registro?");
+    if (respuesta==true){
+      return true;
+    }else{
+      return false;
+    }
+  }
+</script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->

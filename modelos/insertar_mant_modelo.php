@@ -39,7 +39,7 @@ $correo= $_POST["correo"];
         $num_rows = $consulta->fetchColumn();
         
        if ($num_rows>0){ 
-		   echo '<script>alert("Usuario o Correo ya se encuentran registrados ");window.location= "../vistas/insertar_mant_vista.php"</script>';
+		   echo '<script>alert("Usuario o Correo ya se encuentran registrados ");location.href= "../vistas/insertar_mant_vista.php"</script>';
 		    
        }else{	
 		$template_correo=file_get_contents('../vistas/template_correo.php');
@@ -75,13 +75,13 @@ $correo= $_POST["correo"];
 	   $sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
 		VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
 	    $resultado2=$conexion->prepare($sql2);	
-		$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,":accion"=>'INSERTO',":descr"=>'CREO UN USUARIO EN MANTENIMIENTO',":fecha"=>$fecha_vencimiento));
+		$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,":accion"=>'NUEVO',":descr"=>'CREO UN USUARIO EN MANTENIMIENTO',":fecha"=>$fecha_vencimiento));
 		
 	   if ($resultado) {
-		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");window.location= "../vistas/insertar_mant_vista.php"</script>';
+		echo '<script>alert("Se ha registrado exitosamente,revise su correo electronico");location.href= "../vistas/insertar_mant_vista.php"</script>';
 			
 	   } else {
-		echo '<script>alert("Error al registrarse");window.location= "../vistas/insertar_mant_vista.php"</script>';	
+		echo '<script>alert("Error al registrarse");location.href= "../vistas/insertar_mant_vista.php"</script>';	
 		}
 
 		
