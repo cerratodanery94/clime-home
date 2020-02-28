@@ -788,12 +788,7 @@ function validar_recu(){
                           Formulario_actualizar_mant.apellido.value="";
                           return false;
                           }
-                          else if (Validar_espacio (Formulario_actualizar_mant.apellido.value)==false){
-                              document.getElementById("alerta_mant").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>LIMITE DE ESPACIOS EN EL CAMPO</div>';
-                              Formulario_actualizar_mant.apellido.focus();
-                              Formulario_actualizar_mant.apellido.value="";
-                              return false;
-                              }
+                          
           //Validar campo estado
         if (Formulario_actualizar_mant.combox2.value==0){
             document.getElementById("alerta_mant").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>SELECCIONE UNA OPCION EN EL CAMPO ESTADO</div>';

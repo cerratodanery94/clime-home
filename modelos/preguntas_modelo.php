@@ -14,6 +14,13 @@ try {
 				$_SESSION['parametro']=	$registro['PARMT_VALOR'];
             }
             
+            $sql1="SELECT * FROM TBL_PREGUNTAS_USUARIO WHERE USU_CODIGO=:id AND PRE_CODIGO=:pre";
+        $resultado1=$conexion->prepare($sql1);	
+        $resultado1->execute(array(":id"=>$_SESSION["id_us"],"pre"=>$id_pre));
+        $num_rows1 = $resultado1->fetchColumn();
+        if ($num_rows1>0){ 
+            echo '<script>alert("LA PREGUNTA YA ESTA REGISTRADA SELECCIONE UNA DIFERENTE");window.location= "../vistas/preguntas_vista.php"</script>';
+        }else{
            $sql2='INSERT INTO TBL_PREGUNTAS_USUARIO (PRE_CODIGO,USU_CODIGO,PREUSU_RESPUESTA) 
             VALUES (:id_pre,:id_usu,:respuesta)';
             $resultado2=$conexion->prepare($sql2);	
@@ -28,6 +35,8 @@ try {
                 unset($_SESSION['cont_preg']);           
              }
             }
+        }
+
 
        
    

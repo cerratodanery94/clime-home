@@ -5,7 +5,9 @@ $id_pre2=$_POST["id_pre2"];
 $respuesta2=strtoupper($_POST["respuesta2"]);
 $estado='BLOQUEADO';
 try{
-        require '../modelos/conectar.php';
+    require '../modelos/conectar.php';
+    
+        
         $sql="SELECT * FROM TBL_PREGUNTAS_USUARIO WHERE USU_CODIGO=:id_u AND PRE_CODIGO=:id_pre AND PREUSU_RESPUESTA=:respuesta";
         $resultado=$conexion->prepare($sql);	
         $resultado->execute(array(":id_u"=>$_SESSION["id_u"],"id_pre"=>$id_pre2,":respuesta"=>$respuesta2));
@@ -18,7 +20,8 @@ try{
             echo '<script>alert("TU USUARIO HA SIDO BLOQUEADO CONTACTA CON EL ADMINISTRADOR");window.location= "../vistas/login_vista.php"</script>';
         }else{
             header('location:../vistas/restablecer_preguntas_vista.php');
-         }   
+         }  
+
          $num_rows->closeCursor();
 }catch(Exception $e){
     die('Error: ' . $e->GetMessage());
