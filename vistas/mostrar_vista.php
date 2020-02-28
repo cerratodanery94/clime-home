@@ -404,7 +404,7 @@ alert("texto cambiado");
                     "sFirst":    "Primero",
                     "sLast":     "Último",
                     "sNext":     "Siguiente",
-                    "sPrevious": "Anterior"
+                    "sPrevious": "Anterior" //traduccion de tabla
                 }
     }});
     $('#example2').DataTable({
