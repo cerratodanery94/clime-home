@@ -708,7 +708,7 @@ function validar_recu(){
         document.getElementById("alerta8").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>EL CAMPO CONFIRMAR CONTRASEÑA NO DEBE DE CONTENER ESPACIOS</div>';
         formulario_rec.respuesta2.focus();
         formulario_rec.respuesta2.value="";
-        return false;
+        return false;}
     formulario_rec.submit();
     }
     //VALIDAR ACTUALIZAR MANTENIMIENTO:
