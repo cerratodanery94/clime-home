@@ -49,8 +49,9 @@ if (!isset($_SESSION["id_us"])) {
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
-            <a href="../modelos/cerrar_sesion_modelo.php" >  
-            <span class="hidden-xs">SALIR</span>
+            <a href="../modelos/cerrar_sesion_modelo.php">  
+            <i class="fa fa-sign-out"></i>
+            SALIR
             </a>
             <ul class="dropdown-menu">
             </ul>

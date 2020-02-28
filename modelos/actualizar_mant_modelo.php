@@ -97,7 +97,7 @@ require '../modelos/conectar.php';
                 <select class="form-control" name="rol_usuario" id="combox">
                  <option value="0">SELECCIONE ROL:</option>
                  <option value="1">ADMINISTRADOR</option>
-                 <option value="2">INVITADO</option>
+                 <option value="2">DEFAULT</option>
       
                 </select>
                 </div>
