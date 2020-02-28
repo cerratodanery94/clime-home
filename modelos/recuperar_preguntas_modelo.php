@@ -17,6 +17,14 @@ try{
             while($registro=$resultado2->fetch(PDO::FETCH_ASSOC)){	
                 $_SESSION['id_u']=$registro['USU_CODIGO'];
             }
+            $sql8="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+						VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+						$resultado8=$conexion->prepare($sql8);	
+                        $resultado8->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_u"],":objeto"=>6,":accion"=>'INGRESO',":descr"=>'INGRESO A LA PANTALLA RECUPERAR CONTRA',":fecha"=>date("Y-m-d H:m:s")));
+                        $sql9="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+						VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+						$resultado9=$conexion->prepare($sql9);	
+						$resultado9->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_u"],":objeto"=>6,":accion"=>'CONSULTA',":descr"=>'VERIFICA LAS CREDENCIALES DEL USUARIO',":fecha"=>date("Y-m-d H:m:s")));
         
             header('location:../vistas/recuperar_preguntas_vista.php');
          }   

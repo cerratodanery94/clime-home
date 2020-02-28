@@ -13,9 +13,9 @@ require '../modelos/conectar.php';
 					<td>".$fila['USU_ESTADO']."</td>
 					<td>".$fila['USU_CORREO']."</td>
 					<td>
-					<a href='actualizar_mant_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-orange btn-flat margin'>
+					<a href='actualizar_mant_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' class= 'btn bg-orange btn-flat margin' id='text'  >
 					<i class='fa fa-pencil'></i></a>
-					<a href='mostrar_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' onclick='return confdelete();' class= 'btn bg-maroon bnt-flat margin'>
+					<a href='mostrar_vista.php?USU_CODIGO=".$fila['USU_CODIGO']."' onclick='return confdelete();' class= 'btn bg-maroon bnt-flat margin' >
 					<i class='fa fa-trash'></i></a> 
 					</td>
 				</tr>";

@@ -25,7 +25,7 @@
     <b>Recuperar Contraseña</b>
   </div>
   <div class="register-box-body">
-    <p class="login-box-msg">RECUPERAR CONTRASEÑA POR CORREO</p>
+    <p class="login-box-msg">RECUPERAR CONTRASEÑA</p>
 
     <form  method="POST" name="Form_recuperar">
     <div class="form-group has-feedback">

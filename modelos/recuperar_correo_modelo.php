@@ -48,7 +48,15 @@ try{
                 $_SESSION['token']=$registro['USU_TOKEN'];
                 $_SESSION['fec_venc']=$registro['USU_FECHA_TOKEN'];
             }
-         }   
+         } 
+         $sql8="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+						VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+						$resultado8=$conexion->prepare($sql8);	
+                        $resultado8->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_usu"],":objeto"=>6,":accion"=>'INGRESO',":descr"=>'INGRESO A LA PANTALLA RECUPERAR CONTRA',":fecha"=>date("Y-m-d H:m:s")));
+                        $sql9="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+						VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+						$resultado9=$conexion->prepare($sql9);	
+						$resultado9->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_usu"],":objeto"=>6,":accion"=>'CONSULTA',":descr"=>'VERIFICA LAS CREDENCIALES DEL USUARIO',":fecha"=>date("Y-m-d H:m:s")));
          $template=file_get_contents('../vistas/template.php');
          $template=str_replace("{{name}}",$_SESSION['usu'],$template);
          $template=str_replace("{{action_url_1}}","http://localhost:8080/clime-home/vistas/restablecer_contraseña.php?'.$token.'",$template);
@@ -81,6 +89,7 @@ try{
         //$mail->AltBody = 'Este es el cuerpo en texto plano para clientes de correo no HTML';
     
         $mail->send();
+
         echo '<script>alert("SE HA ENVIADO UN CORREO ELECTRONICO PARA EL CAMBIO DE CONTRASEÑA. POR FAVOR VERIFICA LA INFORMACION ENVIADA.");window.location= "../vistas/recuperar_correo.php"</script>';
     
             $num_rows->closeCursor();

@@ -27,6 +27,28 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<script type="text/javascript">
+$(function() {
+$("#text").change(function(){
+
+  <?php
+session_start();
+require_once "../modelos/conectar.php"; 
+   
+$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+$resultado2=$conexion->prepare($sql2);	
+$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,":accion"=>'SALIO',":descr"=>'SALIO DE PANTALLA MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));         
+
+?>
+
+alert("texto cambiado");
+});
+
+});	
+
+</script>
+
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -94,7 +116,7 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>1,
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
           <li><a href="../vistas/insertar_mant_vista.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
+          <li><a href="../vistas/mostrar_vista.php"id="text"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
           
 
         </ul>

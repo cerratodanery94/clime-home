@@ -24,6 +24,10 @@ try {
               $resultado2=$conexion->prepare($sql2);
               $resultado2->execute(array(":nueva"=>$pass_nueva_cifrado,":token"=>NULL,":f_venc"=>NULL,":codigo"=>$id));
               
+              $sql4="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+    VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+    $resultado4=$conexion->prepare($sql4);	
+    $resultado4->execute(array(":id"=>NULL,":usuc"=>$id,":objeto"=>7,":accion"=>'UPDATE',":descr"=>'ACTUALIZO LA CONTRASEÑA POR CORREO',":fecha"=>date("Y-m-d H:m:s")));
               session_destroy();
               echo '<script>alert("SE HA RESTABLECIDO LA CONTRASEÑA CORRECTAMENTE");window.location="../vistas/login_vista.php"</script>';
             } 

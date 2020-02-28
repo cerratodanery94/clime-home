@@ -26,6 +26,11 @@ try {
             $resultado2=$conexion->prepare($sql2);	
             $resultado2->execute(array("id_pre"=>$id_pre,":id_usu"=>$_SESSION["id_us"],":respuesta"=>$respuesta));
 
+            $sql4="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
+            VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
+            $resultado4=$conexion->prepare($sql4);	
+            $resultado4->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>4,":accion"=>'NUEVO',":descr"=>'REGISTRO PREGUNTAS DE SEGURIDAD',":fecha"=>date("Y-m-d H:m:s")));
+
             if ($resultado2) {	
              if ($_SESSION['cont_preg']<$_SESSION['parametro']){
                  ++$_SESSION['cont_preg'];

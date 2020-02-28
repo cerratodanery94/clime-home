@@ -25,6 +25,8 @@
   <script src="../vistas/Js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="hold-transition register-page">
+
+
 <div class="register-box">
   <div class="register-logo">
     <b>Iniciar</b>Sesión
@@ -32,7 +34,7 @@
   </div>
   <div class="register-box-body">
     <p class="login-box-msg"></p>
-    <form action="../modelos/login_modelo.php" method="POST" name="Form_login">
+    <form action="../modelos/login_modelo.php" method="POST"  name="Form_login">
     
                 <div class="col-12 user-img">
                     <img src="../vistas/Img/User_icono2.png" th:src="@{/img/user.png}"/>
@@ -52,14 +54,14 @@
         </div>
       </div>
       <div id ="alerta2"></div>
-      <div class="col-xs-15">
-      <div style='float:center;margin:auto;width:175px;' ><a style= 'text-aling:center;' href="../vistas/recuperar_correo.php">¿HAZ OLVIDADO TU CONTRASEÑA?</a>
+      <div class="col text-center">
+      <div><a  href="../vistas/recuperar_correo.php">¿HAZ OLVIDADO TU CONTRASEÑA?</a>
 </div>
 </div>
 <br></br>
         <!-- /.col -->
         <div class="col-12 forgot">
-        <div style='float:center;margin:auto;width:195px;'><button type="button" class="btn btn-primary "onclick="validar_login();">INGRESAR</button></div>
+        <div style='float:center;margin:auto;width:195px;'><button type="button" class="btn btn-primary" id="textx" onclick="validar_login();">INGRESAR</button></div>
         </div>
     </div>
     <br></br>
