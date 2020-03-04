@@ -327,28 +327,13 @@ alert("texto cambiado");
                 </tr>
                 </thead>
                 <tbody>
-               <?php
-               require '../modelos/conectar.php';
-               $consulta=$conexion->prepare("SELECT * FROM tbl_usuario");
-               $consulta->execute();
-                 while($fila=$consulta->fetch()){?>
-                 <tr>
-                 <td><?php echo $fila['USU_CODIGO']?></td>
-					       <td><?php echo $fila['ROL_CODIGO']?></td>
-					       <td><?php echo $fila['USU_USUARIO']?></td>
-                 <td><?php echo $fila['USU_NOMBRES']?></td>
-					       <td><?php echo $fila['USU_APELLIDOS']?></td>
-					       <td><?php echo $fila['USU_ESTADO']?></td>
-                 <td><?php echo $fila['USU_CORREO']?></td>
-                 <td>
-					       <a href='../modelos/editar_modelo.php?id=<?php echo $fila["USU_CODIGO"]?>' class="btn bg-orange btn-flat margin">
-                 <i class='fa fa-pencil'></i></a>
-                 <a href='../modelos/eliminar_modelo.php?id=<?php echo $fila["USU_CODIGO"]?>' onclick="return confdelete();" class="btn bg-maroon bnt-flat margin">
-					       <i class='fa fa-trash'></i></a> 
-					       </td>
-                 </tr>
-                 <?php } ?>
-              
+                <?php
+                require_once "../modelos/mostrar_modelo.php";
+                    require_once "../modelos/conectar.php";
+                    if(isset($_GET['USU_CODIGO'])){
+                     require_once "../modelos/eliminar_mant_modelo.php";
+                   }
+                ?>
                 </tbody>
                 <tfoot>
                 <tr>
