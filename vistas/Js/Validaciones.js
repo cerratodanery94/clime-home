@@ -714,12 +714,6 @@ function validar_recu(){
     //VALIDAR ACTUALIZAR MANTENIMIENTO:
     function Validar_actualizar_mant(){
         var Formulario_actualizar_mant=document.Formactualizar_mant;
-        
-        Swal.fire(
-            'The Internet?',
-            'That thing is still around?',
-            'question';
-          )
         //validar campo usuario
         if (Formulario_actualizar_mant.usuarion.value==""){
         document.getElementById("alerta_mant").innerHTML='<div class="alert alert-danger"><a href="" class="close" data-dismiss="alert">&times;</a>CAMPO USUARIO SE ENCUENTRA VACIO</div>';
