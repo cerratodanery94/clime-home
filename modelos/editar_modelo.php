@@ -1,24 +1,60 @@
 <?php
-session_start();
-if (!isset($_SESSION["id_us"])) {
-  header('location:../vistas/login_vista.php');
+require'../modelos/conectar.php';
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $sql="SELECT * FROM TBL_USUARIO WHERE USU_CODIGO= :id";
+	$resultado=$conexion->prepare($sql);	
+    $resultado->execute(array(":id"=>$id));
+   if ($resultado->rowCount()>=1) {
+       $fila=$resultado->fetch();
+       $id_u=$fila['USU_CODIGO'];
+       $usuario=$fila['USU_USUARIO'];
+       $nombre=$fila['USU_NOMBRES'];
+       $apellido=$fila['USU_APELLIDOS'];
+       $estado=$fila['USU_ESTADO'];
+       $rol=$fila['ROL_CODIGO'];
+       $correo=$fila['USU_CORREO'];
+   }
 }
-require_once "../modelos/conectar.php"; 
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-$resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11,":accion"=>'INGRESO',":descr"=>'INGRESO ALA PANTALLA DE MOSTRAR USUARIOS MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));         
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-$resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11,":accion"=>'CONSULTA',":descr"=>'MUESTRA LA LISTA DE USUARIOS  QUE HAY MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));
-?>
+if (isset($_POST['nombres']) && isset($_POST['apellidos'])) {
+    $id1=$_POST['id1'];
+    $usuarioa=strtoupper($_POST['usuarioa']);
+    $nombres=strtoupper($_POST['nombres']);
+    $usuarion=strtoupper($_POST['usuarion']);
+    $apellidos=strtoupper($_POST['apellidos']);
+    $estado1=strtoupper($_POST['estado']);
+		$correon=$_POST['correon'];
+    $rol1=$_POST['rol_usuario'];
+    if ($usuarioa!=$usuarion) {
+      $consulta3=$conexion->prepare("SELECT * FROM tbl_usuario WHERE USU_USUARIO=:user");
+      $consulta3->execute(array(":user"=>$usuarion));
+      if($consulta3->rowCount()>=1){
+        //echo "ERROR: USUARIO  YA EXISTE";
+        echo '<script>alert("ERROR: USUARIO  YA EXISTE");location.href="../vistas/mostrar_vista.php"</script>';
+				exit();
+			}else{
+        $usuariof=$usuarion;
+			}
+    } else {
+      $usuariof=$usuarioa;
+    }
+    $consulta2=$conexion->prepare("UPDATE tbl_usuario SET USU_USUARIO=:usuario, USU_NOMBRES=:nombre,USU_APELLIDOS=:apellido,USU_ESTADO=:estado,ROL_CODIGO=:rol,USU_CORREO=:correo WHERE USU_CODIGO=:id");
+			$consulta2->execute(array(":usuario"=>$usuariof,":nombre"=>$nombres,":apellido"=>$apellidos,":estado"=>$estado1,":rol"=>$rol1,":correo"=>$correon,":id"=>$id1));
+            
+            if($consulta2){
+             echo '<script>alert("SE HA ACTUALIZADO REGISTRO CORRECTAMENTE");location.href="../vistas/mostrar_vista.php"</script>';
+            }else{
+              echo '<script>alert("ERROR NO SE ACTUALIZO REGISTRO");location.href="../vistas/mostrar_vista.php"</script>';
+            }
+
+}
+?> 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mostrar Usuarios</title>
+  <title>Editar Usuarios</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -27,15 +63,12 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../vistas/plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../vistas/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+ 
   <link rel="stylesheet" href="../vistas/dist/css/skins/_all-skins.min.css">
-<script>
-   function confdelete(){
+<script >
+  function confdelete(){
     var respuesta= confirm("¿Esta seguro de eliminar el registro?");
     if (respuesta==true){
       return true;
@@ -43,39 +76,13 @@ $resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11
       return false;
     }
   }
-
 </script>
 </head>
-
-
 <body class="hold-transition skin-blue sidebar-mini">
-<script type="text/javascript">
-$(function() {
-$("#text").change(function(){
-
-  <?php
-session_start();
-require_once "../modelos/conectar.php"; 
-   
-$sql2="INSERT  INTO TBL_BITACORA (BIT_CODIGO,USU_CODIGO,OBJ_CODIGO,BIT_ACCION,BIT_DESCRIPCION,BIT_FECHA) 
-VALUES (:id,:usuc,:objeto,:accion,:descr,:fecha)";
-$resultado2=$conexion->prepare($sql2);	
-$resultado2->execute(array(":id"=>NULL,":usuc"=>$_SESSION["id_us"],":objeto"=>11,":accion"=>'SALIO',":descr"=>'SALIO DE PANTALLA MOSTRAR MANTENIMIENTO',":fecha"=>date("Y-m-d H:m:s")));         
-
-?>
-
-alert("texto cambiado");
-});
-
-});	
-
-</script>
-
-
-
+<!-- Site wrapper -->
 <div class="wrapper">
 
-  <header class="main-header">
+  <header class="main-header ">
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -140,8 +147,8 @@ alert("texto cambiado");
         <!-- subtitulos de Usuario -->
         <ul class="treeview-menu">
           <li><a href="../vistas/insertar_mant_vista.php"><i class="fa fa-plus-square"></i>Crear Usuarios</a></li>
-          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i>lista de usuarios</a></li>
-         
+          <li><a href="../vistas/mostrar_vista.php"><i class="fa fa-minus-square"></i> Lista de Usuarios</a></li>
+          
 
         </ul>
       </li>
@@ -277,14 +284,6 @@ alert("texto cambiado");
           <li><a href="administradores.php"><i class="fa fa-circle-o"></i>Agregar Administrador</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Agregar Venta</a></li>
           <li><a href="#"><i class="fa fa-circle-o"></i> Actualizar Ventas</a></li>
- 
-        
-        
-        
-      
-       
-        
-        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -297,85 +296,125 @@ alert("texto cambiado");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LISTA DE USUARIOS
-        
+        MANTENIMIENTO ACTUALIZAR 
       </h1>
+      
       
     </section>
 
     <!-- Main content -->
+    
+    <div class="row">
+
+           <div class="col-md-5 ">
     <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">ADMINISTRA LOS USUARIOS EN ESTA SECCION </h3>
-            </div>
-            <!--llamar funciones-->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th >ID USUARIO</th>
-                  <th>ROL</th>
-                  <th>USUARIO</th>
-                  <th>NOMBRES</th>
-                  <th>APELLIDOS</th>
-                  <th>ESTADO</th>
-                  <th>CORREO</th>
-                  <th>ACCIONES</th>
-                </tr>
-                </thead>
-                <tbody>
-               <?php
-               require '../modelos/conectar.php';
-               $consulta=$conexion->prepare("SELECT * FROM tbl_usuario");
-               $consulta->execute();
-                 while($fila=$consulta->fetch()){?>
-                 <tr>
-                 <td><?php echo $fila['USU_CODIGO']?></td>
-					       <td><?php echo $fila['ROL_CODIGO']?></td>
-					       <td><?php echo $fila['USU_USUARIO']?></td>
-                 <td><?php echo $fila['USU_NOMBRES']?></td>
-					       <td><?php echo $fila['USU_APELLIDOS']?></td>
-					       <td><?php echo $fila['USU_ESTADO']?></td>
-                 <td><?php echo $fila['USU_CORREO']?></td>
-                 <td>
-					       <a href='../modelos/editar_modelo.php?id=<?php echo $fila["USU_CODIGO"]?>' class="btn bg-orange btn-flat margin">
-                 <i class='fa fa-pencil'></i></a>
-                 <a href='../modelos/eliminar_modelo.php?id=<?php echo $fila["USU_CODIGO"]?>' onclick="return confdelete();" class="btn bg-maroon bnt-flat margin">
-					       <i class='fa fa-trash'></i></a> 
-					       </td>
-                 </tr>
-                 <?php } ?>
-              
-                </tbody>
-                <tfoot>
-                <tr>
-                <th>ID USUARIO</th>
-                  <th>ROL</th>
-                  <th>USUARIO</th>
-                  <th>NOMBRES</th>
-                  <th>APELLIDOS</th>
-                  <th>ESTADO</th>
-                  <th>CORREO</th>
-                  <th>ACCIONES</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">EDITAR USUARIO</h3>
         </div>
-        <!-- /.col -->
+        <div class="box-body">
+        <form action="" method="POST"  name="Formactualizar_mant">
+                <div class="form-group">
+                 <input type="hidden"  class="form-control " name="id1" value="<?php echo $id_u;?>" >
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">NOMBRES</label>
+                  <input type="text"style="text-transform:uppercase" class="form-control apellidos" placeholder="NOMBRE"  name="nombres" id="nombre" value="<?php echo $nombre?>" >
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">APELLIDOS</label>
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="APELLIDO"  name="apellidos" id="apellido" value="<?php echo $apellido?>" >
+                </div>
+                <div class="form-group">
+                  <input type="hidden" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarioa" id="usuarioa" value="<?php echo $usuario?>">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">USUARIO</label>
+                  <input type="text" style="text-transform:uppercase" class="form-control nombres" placeholder="USUARIO"  name="usuarion" id="usuarion" value="<?php echo $usuario?>">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">ESTADO</label>
+                <select class="form-control" name="estado" id="combox2">
+                 <option value="0">SELECCIONE EL ESTADO:</option>
+                 <option value="NUEVO"
+                 <?php
+                 if ($estado=='NUEVO') {
+                    echo 'selected';
+                 }
+                 ?>
+                 >NUEVO</option>
+                 <option value="ACTIVO"
+                 <?php
+                 if ($estado=='ACTIVO') {
+                    echo 'selected';
+                 }
+                 ?>
+                 >ACTIVO</option>
+                 <option value="BLOQUEADO"
+                 <?php
+                 if ($estado=='BLOQUEADO') {
+                    echo 'selected';
+                 }
+                 ?>
+                 >BLOQUEADO</option>
+                 <option value="VACACIONES"
+                 <?php
+                 if ($estado=='VACACIONES') {
+                    echo 'selected';
+                 }
+                 ?>
+                 >VACACIONES</option>
+                </select>
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">ROL</label>
+                <select class="form-control" name="rol_usuario" id="combox">
+                 <option value="0">SELECCIONE ROL:</option>
+                 <option value="1"
+                 <?php
+                 if ($rol==1) {
+                    echo 'selected';
+                 }
+                 ?>
+                 >ADMINISTRADOR</option>
+                 <option value="2"
+                 <?php
+                 if ($rol==2) {
+                    echo 'selected';
+                 }
+                 ?>
+                 >DEFAULT</option>
+      
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputPassword1">CORREO</label>
+                  <input type="email" class="form-control correo" placeholder="CORREO" name="correon" id="correon" value="<?php echo $correo?>" >
+                </div>
+                </div>
+                <div class="box-footer">
+                <div class="col text-center">
+                <div Id="alerta_mant"></div>
+    
+                <button type="button" name="update" class="btn btn-primary" onclick="Validar_actualizar_mant();">ACTUALIZAR</button>
+                </div>
+                </div>
+            </form>
+            
+        </div>
+        <!-- /.box-body --> 
+        <!-- /.box-footer-->
       </div>
-      <!-- /.row -->
-    </section>
+      <!-- /.box -->
     <!-- /.content -->
+    </div>
+    </div>
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.8
@@ -396,42 +435,14 @@ alert("texto cambiado");
 <script src="../vistas/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../vistas/bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../vistas/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../vistas/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="../vistas/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../vistas/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../vistas/dist/js/app.min.js"></script>
+<script src="../vistas/Js/Validaciones.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../vistas/dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable({
-      language: {
-        sSearch: "Buscar:",
-        sInfo:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-        sLengthMenu:     "Mostrar _MENU_ registros",
-        oPaginate: {
-                    "sFirst":    "Primero",
-                    "sLast":     "Último",
-                    "sNext":     "Siguiente",
-                    "sPrevious": "Anterior" //traduccion de tabla
-                }
-    }});
-    $('#example2').DataTable({
-      "paging": true,
-      "pagelength":3,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 </body>
 </html>
